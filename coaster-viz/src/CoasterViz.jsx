@@ -1369,7 +1369,7 @@ export default function CoasterViz() {
         {/* FOOTER */}
         <div style={{ textAlign: "center", padding: "40px 16px 0", color: "rgba(255,255,255,0.2)", fontSize: 11 }}>
           <div style={{ width: 60, height: 1, background: "rgba(255,255,255,0.1)", margin: "0 auto 16px" }} />
-          Reed's Roller Coaster Database · 29 Coasters · 9 Parks · Data compiled 2025
+          Reed's Roller Coaster Database · 29 Coasters · 9 Parks · Data compiled 2026
         </div>
       </div>
 
