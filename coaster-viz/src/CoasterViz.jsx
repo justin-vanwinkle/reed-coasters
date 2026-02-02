@@ -151,6 +151,140 @@ function Section({ title, subtitle, children, span = false }) {
   );
 }
 
+// ── RECORD PODIUM ──
+const MEDAL_COLORS = {
+  gold: "#FFD700",
+  silver: "#C0C0C0",
+  bronze: "#CD7F32",
+};
+
+const RecordPodium = ({ category, onSelectCoaster }) => {
+  const { title, field, unit, icon, data } = category;
+  if (!data || data.length === 0) return null;
+
+  const [first, second, third] = data;
+
+  const PodiumPlace = ({ coaster, place, height, medalColor }) => {
+    if (!coaster) return <div style={{ width: 100 }} />;
+    const parkColor = PARK_COLORS[coaster.park] || "#4ECDC4";
+    return (
+      <div
+        onClick={() => onSelectCoaster && onSelectCoaster(coaster)}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          cursor: "pointer",
+          transition: "transform 0.2s",
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+        onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+      >
+        {/* Medal */}
+        <div style={{
+          width: 36,
+          height: 36,
+          borderRadius: "50%",
+          background: `linear-gradient(135deg, ${medalColor} 0%, ${medalColor}88 100%)`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 14,
+          fontWeight: 900,
+          color: place === 1 ? "#000" : "#fff",
+          boxShadow: `0 4px 12px ${medalColor}44`,
+          marginBottom: 8,
+        }}>
+          {place}
+        </div>
+        {/* Podium block */}
+        <div style={{
+          width: 100,
+          height: height,
+          background: `linear-gradient(180deg, ${medalColor}33 0%, ${medalColor}11 100%)`,
+          border: `2px solid ${medalColor}55`,
+          borderRadius: "8px 8px 0 0",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          padding: "12px 8px",
+        }}>
+          <div style={{
+            fontSize: 20,
+            fontWeight: 900,
+            color: medalColor,
+            letterSpacing: "-0.5px",
+          }}>
+            {coaster[field]?.toLocaleString()}{unit}
+          </div>
+          <div style={{
+            fontSize: 11,
+            fontWeight: 700,
+            color: "#fff",
+            textAlign: "center",
+            marginTop: 6,
+            lineHeight: 1.2,
+          }}>
+            {coaster.name}
+          </div>
+          <div style={{
+            fontSize: 9,
+            color: parkColor,
+            marginTop: 4,
+            fontWeight: 600,
+          }}>
+            {coaster.park}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div style={{
+      background: "rgba(255,255,255,0.03)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderRadius: 16,
+      padding: "20px 16px 24px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}>
+      {/* Header */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 20,
+      }}>
+        <span style={{ fontSize: 20 }}>{icon}</span>
+        <span style={{
+          fontSize: 14,
+          fontWeight: 800,
+          color: "#fff",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+        }}>
+          {title}
+        </span>
+      </div>
+
+      {/* Podium */}
+      <div style={{
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        gap: 8,
+      }}>
+        <PodiumPlace coaster={second} place={2} height={100} medalColor={MEDAL_COLORS.silver} />
+        <PodiumPlace coaster={first} place={1} height={130} medalColor={MEDAL_COLORS.gold} />
+        <PodiumPlace coaster={third} place={3} height={80} medalColor={MEDAL_COLORS.bronze} />
+      </div>
+    </div>
+  );
+};
+
 // ── VIEW TOGGLE ──
 const ViewToggle = ({ view, setView }) => (
   <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
@@ -631,12 +765,33 @@ export default function CoasterViz() {
   const avgSpeed = Math.round(coasters.filter(c => c.speed).reduce((s, c) => s + c.speed, 0) / coasters.filter(c => c.speed).length);
   const maxGforce = Math.max(...coasters.filter(c => c.gforce).map(c => c.gforce));
 
+  // ── RECORDS DATA ── (top 3 for each category)
+  const getTop3 = (arr, field, ascending = false) => {
+    const filtered = arr.filter(c => c[field] != null);
+    const sorted = ascending
+      ? filtered.sort((a, b) => a[field] - b[field])
+      : filtered.sort((a, b) => b[field] - a[field]);
+    return sorted.slice(0, 3);
+  };
+
+  const recordCategories = [
+    { id: "tallest", title: "Tallest", field: "height", unit: "ft", icon: "🏔️", data: getTop3(coasters, "height") },
+    { id: "fastest", title: "Fastest", field: "speed", unit: "mph", icon: "⚡", data: getTop3(coasters, "speed") },
+    { id: "longest", title: "Longest Track", field: "track", unit: "ft", icon: "📏", data: getTop3(coasters, "track") },
+    { id: "inversions", title: "Most Inversions", field: "inversions", unit: "", icon: "🔄", data: getTop3(coasters, "inversions") },
+    { id: "gforce", title: "Highest G-Force", field: "gforce", unit: "G", icon: "💥", data: getTop3(coasters, "gforce") },
+    { id: "steepest", title: "Steepest Drop", field: "dropAngle", unit: "°", icon: "🎯", data: getTop3(coasters, "dropAngle") },
+    { id: "oldest", title: "Oldest", field: "year", unit: "", icon: "📜", data: getTop3(coasters, "year", true) },
+    { id: "newest", title: "Newest", field: "year", unit: "", icon: "✨", data: getTop3(coasters, "year", false) },
+  ];
+
   const tabs = [
     { id: "overview", label: "Overview" },
     { id: "height-speed", label: "Height & Speed" },
     { id: "inversions", label: "Inversions & G's" },
     { id: "tracks", label: "Tracks & Time" },
     { id: "builders", label: "Builders & Types" },
+    { id: "records", label: "Records" },
     { id: "raw-data", label: "Raw Data" },
   ];
 
@@ -1127,9 +1282,9 @@ export default function CoasterViz() {
             <Section title="🗺️ Geography" subtitle="Reed's coasters by state">
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
-                  { state: "Florida", count: 18, color: "#FF6B6B", parks: "Busch Gardens Tampa (7), SeaWorld Orlando (3), Walt Disney World (7), Jellystone Park (1)" },
+                  { state: "Florida", count: 17, color: "#FF6B6B", parks: "Busch Gardens Tampa (7), SeaWorld Orlando (3), Walt Disney World (7)" },
                   { state: "Ohio", count: 6, color: "#4ECDC4", parks: "Kings Island (6)" },
-                  { state: "North Carolina", count: 5, color: "#6BCB77", parks: "Carowinds (5)" },
+                  { state: "North Carolina", count: 6, color: "#6BCB77", parks: "Carowinds (5), Jellystone Park (1)" },
                 ].map((s, i) => (
                   <div key={i} style={{
                     padding: "14px 18px",
@@ -1149,6 +1304,53 @@ export default function CoasterViz() {
                 ))}
               </div>
             </Section>
+          </div>
+        )}
+
+        {/* ── RECORDS ── */}
+        {activeTab === "records" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {/* Hero Header */}
+            <div style={{
+              textAlign: "center",
+              padding: "24px 16px",
+              background: "linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(192,192,192,0.05) 50%, rgba(205,127,50,0.08) 100%)",
+              border: "1px solid rgba(255,215,0,0.15)",
+              borderRadius: 16,
+            }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>🏆</div>
+              <h2 style={{
+                fontSize: 24,
+                fontWeight: 900,
+                color: "#FFD700",
+                margin: "0 0 8px",
+                letterSpacing: "-0.5px",
+              }}>
+                Hall of Records
+              </h2>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                The ultimate champions of Reed's coaster collection
+              </p>
+            </div>
+
+            {/* Podium Grid */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gap: 16,
+            }}>
+              {recordCategories.map((cat) => (
+                <RecordPodium
+                  key={cat.id}
+                  category={cat}
+                  onSelectCoaster={(coaster) => {
+                    // Find the full coaster data from rawCoasterData for the modal
+                    const fullCoaster = rawCoasterData.find(c => c.Name === coaster.name);
+                    if (fullCoaster) setSelectedCoaster(fullCoaster);
+                  }}
+                />
+              ))}
+            </div>
           </div>
         )}
 
