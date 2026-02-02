@@ -544,7 +544,7 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
 // ── MAIN COMPONENT ──
 export default function CoasterViz() {
   const [activeTab, setActiveTab] = useState("overview");
-  const [rawDataView, setRawDataView] = useState("table");
+  const [rawDataView, setRawDataView] = useState("cards");
   const [selectedCoaster, setSelectedCoaster] = useState(null);
 
   // ── DERIVED DATA ──
