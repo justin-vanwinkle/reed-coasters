@@ -457,11 +457,26 @@ const DataCards = ({ data, onSelectCoaster }) => {
             {/* Hero Image or Gradient */}
             <div style={{
               height: 160,
-              background: hasImage
-                ? `url(${coaster["Image URL"]}) center/cover`
-                : `linear-gradient(135deg, ${parkColor}33 0%, ${parkColor}11 100%)`,
+              background: `linear-gradient(135deg, ${parkColor}33 0%, ${parkColor}11 100%)`,
               position: "relative",
+              overflow: "hidden",
             }}>
+              {hasImage && (
+                <img
+                  src={coaster["Image URL"]}
+                  alt={coaster.Name}
+                  referrerPolicy="no-referrer"
+                                    onError={(e) => { e.target.style.display = 'none'; }}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
               {/* Park Badge */}
               <div style={{
                 position: "absolute",
@@ -614,13 +629,28 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
       >
         {/* Hero Image */}
         <div style={{
-          height: coaster["Image URL"] ? 250 : 120,
-          background: coaster["Image URL"]
-            ? `url(${coaster["Image URL"]}) center/cover`
-            : `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
+          height: 250,
+          background: `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
           borderRadius: "20px 20px 0 0",
           position: "relative",
+          overflow: "hidden",
         }}>
+          {coaster["Image URL"] && (
+            <img
+              src={coaster["Image URL"]}
+              alt={coaster.Name}
+              referrerPolicy="no-referrer"
+                            onError={(e) => { e.target.style.display = 'none'; }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          )}
           {/* Close Button */}
           <button
             onClick={onClose}
