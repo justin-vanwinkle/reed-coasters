@@ -1,0 +1,22 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: var(--glass-backdrop);
+  z-index: var(--z-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+.content {
+  background: linear-gradient(145deg, #1a1f2e 0%, #0f1423 100%);
+  border-radius: var(--radius-3xl);
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}

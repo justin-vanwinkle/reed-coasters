@@ -1,0 +1,100 @@
+.card {
+  background: var(--glass-bg);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all var(--transition-slow);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -10px var(--park-color-light);
+  border-color: var(--park-color-light);
+}
+
+.hero {
+  height: 160px;
+  background: linear-gradient(135deg, var(--park-color-light) 0%, rgba(0, 0, 0, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parkBadge {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--park-color);
+}
+
+.yearBadge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: var(--radius-xl);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-warning);
+}
+
+.content {
+  padding: var(--spacing-lg) 18px var(--spacing-xl);
+}
+
+.name {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
+  margin: 0 0 var(--spacing-md);
+  letter-spacing: -0.3px;
+}
+
+.stats {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.statValue {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  color: var(--park-color);
+}
+
+.statUnit {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.hint {
+  margin-top: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}

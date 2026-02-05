@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.statCard {
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: rgba(78, 205, 196, 0.06);
+  border: 1px solid rgba(78, 205, 196, 0.15);
+  border-radius: var(--radius-2xl);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+}
+
+.statValue {
+  font-size: var(--font-size-mega);
+  font-weight: var(--font-weight-black);
+  color: var(--color-primary);
+  letter-spacing: -2px;
+}
+
+.statNote {
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+.statNote strong {
+  color: var(--color-warning);
+}

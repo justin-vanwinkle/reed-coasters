@@ -1,0 +1,13 @@
+.footer {
+  text-align: center;
+  padding: var(--spacing-5xl) var(--spacing-lg) 0;
+  color: var(--text-subtle);
+  font-size: var(--font-size-sm);
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--glass-border);
+  margin: 0 auto var(--spacing-lg);
+}

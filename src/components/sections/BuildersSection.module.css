@@ -1,0 +1,113 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.mfrList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mfrItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.mfrHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.mfrName {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.mfrCount {
+  font-size: var(--font-size-base);
+  color: var(--text-tertiary);
+}
+
+.mfrBar {
+  height: 20px;
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.mfrFill {
+  height: 100%;
+  border-radius: var(--radius-lg);
+  transition: width 1s ease;
+}
+
+.mfrCoasters {
+  font-size: 10px;
+  color: var(--text-subtle);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.typeTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.typeTag {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.typeCount {
+  font-size: var(--spacing-lg);
+  font-weight: var(--font-weight-black);
+}
+
+.typeName {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.geoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.geoCard {
+  padding: var(--spacing-lg) 18px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.geoContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.geoState {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-black);
+}
+
+.geoParks {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.geoCount {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  opacity: 0.8;
+}

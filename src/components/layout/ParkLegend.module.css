@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  padding: 0 var(--spacing-lg) var(--spacing-2xl);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+}
+
+.label {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-semibold);
+}

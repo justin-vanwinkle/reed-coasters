@@ -1,0 +1,19 @@
+.tooltip {
+  background: rgba(15, 20, 35, 0.95);
+  border: 1px solid var(--glass-border-hover);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+}
+
+.label {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.value {
+  font-size: var(--font-size-base);
+  margin: 2px 0;
+}
