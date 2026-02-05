@@ -21,7 +21,7 @@ const TABS: Tab[] = [
   { id: 'tracks', label: 'Tracks & Time' },
   { id: 'builders', label: 'Builders & Types' },
   { id: 'records', label: 'Records' },
-  { id: 'raw-data', label: 'Raw Data' },
+  { id: 'raw-data', label: 'Coaster Details' },
 ];
 
 /**
