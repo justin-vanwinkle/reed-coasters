@@ -52,6 +52,39 @@ const MFR_COLORS = {
   "Wiegand": "#8E99A4",
 };
 
+// ── POV VIDEO IDS (YouTube) ──
+// Curated first-person POV videos for each coaster
+const POV_VIDEOS = {
+  "The Beast": { id: "umMFrZbmDhA", title: "The Beast POV - Kings Island" },
+  "Mystic Timbers": { id: "AaF7acNLNHI", title: "Mystic Timbers POV - Kings Island" },
+  "The Bat": { id: "xYxMJl7KUMY", title: "The Bat POV - Kings Island" },
+  "Backlot Stunt Coaster": { id: "TPFKXy34xCg", title: "Backlot Stunt Coaster POV - Kings Island" },
+  "The Racer": { id: "Q0nqszo8nco", title: "The Racer POV - Kings Island" },
+  "Woodstock Express": { id: "h4g1mVHJieU", title: "Woodstock Express POV - Kings Island" },
+  "Rock 'n' Roller Coaster": { id: "7Re_kl7sAhA", title: "Rock 'n' Roller Coaster POV - Hollywood Studios" },
+  "Seven Dwarfs Mine Train": { id: "qT8XgRPwGRY", title: "Seven Dwarfs Mine Train POV - Magic Kingdom" },
+  "Slinky Dog Dash": { id: "d9tNcboH-Sw", title: "Slinky Dog Dash POV - Hollywood Studios" },
+  "Expedition Everest": { id: "wQAuXvD6YVA", title: "Expedition Everest POV - Animal Kingdom" },
+  "The Barnstormer": { id: "bwVBsSeu8SM", title: "The Barnstormer POV - Magic Kingdom" },
+  "Big Thunder Mountain Railroad": { id: "FT8teXB_nWM", title: "Big Thunder Mountain POV - Magic Kingdom" },
+  "Guardians of the Galaxy: Cosmic Rewind": { id: "LaSsvqrs9YY", title: "Cosmic Rewind POV - EPCOT" },
+  "Blue Ridge Mountain Coaster": { id: "KQxh6sxJqHo", title: "Blue Ridge Mountain Coaster POV" },
+  "Fury 325": { id: "VXC-dct550Y", title: "Fury 325 POV - Carowinds" },
+  "Thunder Striker": { id: "gzLfVpTstFE", title: "Thunder Striker (Intimidator) POV - Carowinds" },
+  "Carolina Cyclone": { id: "R7OGVRnUz24", title: "Carolina Cyclone POV - Carowinds" },
+  "Ricochet": { id: "nNjrw2m_uDo", title: "Ricochet POV - Carowinds" },
+  "Montu": { id: "UBDPJQ8l0Xk", title: "Montu POV - Busch Gardens Tampa" },
+  "SheiKra": { id: "IW4bFqi4Yb0", title: "SheiKra POV - Busch Gardens Tampa" },
+  "Iron Gwazi": { id: "HzAI9tLLdiQ", title: "Iron Gwazi POV - Busch Gardens Tampa" },
+  "Kumba": { id: "QkQ-CKPmqE0", title: "Kumba POV - Busch Gardens Tampa" },
+  "Phoenix Rising": { id: "qKGx7WFmUlc", title: "Phoenix Rising POV - Busch Gardens Tampa" },
+  "Tigris": { id: "kJTsxM4u2QU", title: "Tigris POV - Busch Gardens Tampa" },
+  "Cheetah Hunt": { id: "pYsZz2mgGDo", title: "Cheetah Hunt POV - Busch Gardens Tampa" },
+  "Mako": { id: "99gaZmiL4hE", title: "Mako POV - SeaWorld Orlando" },
+  "Pipeline: The Surf Coaster": { id: "vhH6fy1Kwj8", title: "Pipeline Surf Coaster POV - SeaWorld Orlando" },
+  "Kraken": { id: "yPkfxP4RP94", title: "Kraken POV - SeaWorld Orlando" },
+};
+
 const coasters = [
   { name: "The Beast", park: "Kings Island", mfr: "PTC", year: 1979, type: "Wooden", height: 110, drop: 141, speed: 65, track: 7361, duration: "4:10", inversions: 0, gforce: 3.8, dropAngle: 18 },
   { name: "Mystic Timbers", park: "Kings Island", mfr: "GCI", year: 2017, type: "Wooden", height: 109, drop: 98, speed: 53, track: 3265, duration: "2:40", inversions: 0, gforce: null, dropAngle: null },
@@ -522,17 +555,27 @@ const DataCards = ({ data, onSelectCoaster }) => {
 
 // ── COASTER MODAL ──
 const CoasterModal = ({ coaster, columns, onClose }) => {
+  const [showVideo, setShowVideo] = useState(false);
+
   useEffect(() => {
     const handleEscape = (e) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
 
+  useEffect(() => {
+    // Reset video state when coaster changes
+    setShowVideo(false);
+  }, [coaster?.Name]);
+
   if (!coaster) return null;
 
   const parkColor = PARK_COLORS[coaster.Park] || "#4ECDC4";
   const keyStats = ["Height (ft)", "Speed (mph)", "Drop (ft)", "Inversions", "Year Opened", "Max G-Force"];
   const excludeFromDetails = ["Name", "Park", "Image URL", ...keyStats];
+
+  // Get POV video for this coaster
+  const povVideo = POV_VIDEOS[coaster.Name];
 
   return (
     <div
@@ -563,15 +606,101 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
           position: "relative",
         }}
       >
-        {/* Hero Image */}
+        {/* Hero Image / Video Section */}
         <div style={{
-          height: coaster["Image URL"] ? 250 : 120,
-          background: coaster["Image URL"]
-            ? `url(${coaster["Image URL"]}) center/cover`
-            : `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
           borderRadius: "20px 20px 0 0",
           position: "relative",
+          overflow: "hidden",
         }}>
+          {/* Video Embed (when active) */}
+          {showVideo && povVideo ? (
+            <div style={{
+              position: "relative",
+              paddingTop: "56.25%", // 16:9 aspect ratio
+              background: "#000",
+            }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${povVideo.id}?autoplay=1&rel=0`}
+                title={povVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            </div>
+          ) : (
+            /* Hero Image (default) */
+            <div style={{
+              height: coaster["Image URL"] ? 250 : 120,
+              background: coaster["Image URL"]
+                ? `url(${coaster["Image URL"]}) center/cover`
+                : `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
+              position: "relative",
+            }}>
+              {/* Play POV Button Overlay */}
+              {povVideo && (
+                <button
+                  onClick={() => setShowVideo(true)}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: 72,
+                    height: 72,
+                    borderRadius: "50%",
+                    background: "rgba(255,0,0,0.9)",
+                    border: "4px solid rgba(255,255,255,0.9)",
+                    color: "#fff",
+                    fontSize: 28,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.1)";
+                    e.currentTarget.style.background = "rgba(255,0,0,1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
+                    e.currentTarget.style.background = "rgba(255,0,0,0.9)";
+                  }}
+                >
+                  ▶
+                </button>
+              )}
+              {povVideo && (
+                <div style={{
+                  position: "absolute",
+                  bottom: 12,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  background: "rgba(0,0,0,0.75)",
+                  backdropFilter: "blur(4px)",
+                  padding: "6px 14px",
+                  borderRadius: 20,
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: "#fff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                }}>
+                  🎬 Watch Front-Seat POV
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Close Button */}
           <button
             onClick={onClose}
@@ -590,10 +719,37 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              zIndex: 10,
             }}
           >
             ×
           </button>
+
+          {/* Back to Image Button (when video is playing) */}
+          {showVideo && (
+            <button
+              onClick={() => setShowVideo(false)}
+              style={{
+                position: "absolute",
+                top: 16,
+                left: 16,
+                padding: "8px 14px",
+                borderRadius: 20,
+                background: "rgba(0,0,0,0.7)",
+                border: "none",
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 600,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                zIndex: 10,
+              }}
+            >
+              ← Back to Image
+            </button>
+          )}
         </div>
 
         {/* Content */}
