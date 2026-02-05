@@ -53,36 +53,42 @@ const MFR_COLORS = {
 };
 
 // ── POV VIDEO IDS (YouTube) ──
-// Curated first-person POV videos for each coaster
+// Verified front-seat POV videos for each coaster
 const POV_VIDEOS = {
-  "The Beast": { id: "umMFrZbmDhA", title: "The Beast POV - Kings Island" },
-  "Mystic Timbers": { id: "AaF7acNLNHI", title: "Mystic Timbers POV - Kings Island" },
-  "The Bat": { id: "xYxMJl7KUMY", title: "The Bat POV - Kings Island" },
-  "Backlot Stunt Coaster": { id: "TPFKXy34xCg", title: "Backlot Stunt Coaster POV - Kings Island" },
-  "The Racer": { id: "Q0nqszo8nco", title: "The Racer POV - Kings Island" },
-  "Woodstock Express": { id: "h4g1mVHJieU", title: "Woodstock Express POV - Kings Island" },
-  "Rock 'n' Roller Coaster": { id: "7Re_kl7sAhA", title: "Rock 'n' Roller Coaster POV - Hollywood Studios" },
-  "Seven Dwarfs Mine Train": { id: "qT8XgRPwGRY", title: "Seven Dwarfs Mine Train POV - Magic Kingdom" },
-  "Slinky Dog Dash": { id: "d9tNcboH-Sw", title: "Slinky Dog Dash POV - Hollywood Studios" },
-  "Expedition Everest": { id: "wQAuXvD6YVA", title: "Expedition Everest POV - Animal Kingdom" },
-  "The Barnstormer": { id: "bwVBsSeu8SM", title: "The Barnstormer POV - Magic Kingdom" },
-  "Big Thunder Mountain Railroad": { id: "FT8teXB_nWM", title: "Big Thunder Mountain POV - Magic Kingdom" },
-  "Guardians of the Galaxy: Cosmic Rewind": { id: "LaSsvqrs9YY", title: "Cosmic Rewind POV - EPCOT" },
-  "Blue Ridge Mountain Coaster": { id: "KQxh6sxJqHo", title: "Blue Ridge Mountain Coaster POV" },
-  "Fury 325": { id: "VXC-dct550Y", title: "Fury 325 POV - Carowinds" },
-  "Thunder Striker": { id: "gzLfVpTstFE", title: "Thunder Striker (Intimidator) POV - Carowinds" },
-  "Carolina Cyclone": { id: "R7OGVRnUz24", title: "Carolina Cyclone POV - Carowinds" },
-  "Ricochet": { id: "nNjrw2m_uDo", title: "Ricochet POV - Carowinds" },
-  "Montu": { id: "UBDPJQ8l0Xk", title: "Montu POV - Busch Gardens Tampa" },
-  "SheiKra": { id: "IW4bFqi4Yb0", title: "SheiKra POV - Busch Gardens Tampa" },
-  "Iron Gwazi": { id: "HzAI9tLLdiQ", title: "Iron Gwazi POV - Busch Gardens Tampa" },
-  "Kumba": { id: "QkQ-CKPmqE0", title: "Kumba POV - Busch Gardens Tampa" },
-  "Phoenix Rising": { id: "qKGx7WFmUlc", title: "Phoenix Rising POV - Busch Gardens Tampa" },
-  "Tigris": { id: "kJTsxM4u2QU", title: "Tigris POV - Busch Gardens Tampa" },
-  "Cheetah Hunt": { id: "pYsZz2mgGDo", title: "Cheetah Hunt POV - Busch Gardens Tampa" },
-  "Mako": { id: "99gaZmiL4hE", title: "Mako POV - SeaWorld Orlando" },
-  "Pipeline: The Surf Coaster": { id: "vhH6fy1Kwj8", title: "Pipeline Surf Coaster POV - SeaWorld Orlando" },
-  "Kraken": { id: "yPkfxP4RP94", title: "Kraken POV - SeaWorld Orlando" },
+  // Kings Island
+  "The Beast": { id: "tvGDC1vJLaQ", title: "The Beast POV - Kings Island (Official)" },
+  "Mystic Timbers": { id: "7bMWLgLZHIk", title: "Mystic Timbers POV - Kings Island" },
+  "The Bat": { id: "aS0tspdvo7c", title: "The Bat POV - Kings Island" },
+  "Backlot Stunt Coaster": { id: "4v6paKuFDv0", title: "Backlot Stunt Coaster POV - Kings Island" },
+  "The Racer": { id: "hIL-gZTftPk", title: "The Racer POV - Kings Island" },
+  "Woodstock Express": { id: "k2tz_SSnID4", title: "Woodstock Express POV - Kings Island" },
+  // Walt Disney World
+  "Rock 'n' Roller Coaster": { id: "3kPGnGb7E9M", title: "Rock 'n' Roller Coaster POV - Hollywood Studios" },
+  "Seven Dwarfs Mine Train": { id: "8T0wAi0gMvM", title: "Seven Dwarfs Mine Train POV - Magic Kingdom" },
+  "Slinky Dog Dash": { id: "6KERUB0PqjI", title: "Slinky Dog Dash POV - Hollywood Studios" },
+  "Expedition Everest": { id: "WYhAu4OhhZ4", title: "Expedition Everest POV - Animal Kingdom" },
+  "The Barnstormer": { id: "aZR5pFnNJsU", title: "The Barnstormer POV - Magic Kingdom" },
+  "Big Thunder Mountain Railroad": { id: "uzHbyQh2kRw", title: "Big Thunder Mountain POV - Magic Kingdom" },
+  "Guardians of the Galaxy: Cosmic Rewind": { id: "HlBRVamVhDM", title: "Cosmic Rewind POV - EPCOT" },
+  // Carowinds
+  "Fury 325": { id: "Ry8UYr7wg64", title: "Fury 325 POV - Carowinds" },
+  "Thunder Striker": { id: "fTh_qfYvqpw", title: "Thunder Striker (Intimidator) POV - Carowinds" },
+  "Carolina Cyclone": { id: "5_0H5HZQDTQ", title: "Carolina Cyclone POV - Carowinds" },
+  "Ricochet": { id: "VwVJNNKLhP8", title: "Ricochet POV - Carowinds" },
+  // Busch Gardens Tampa
+  "Montu": { id: "j0kw80_5xhM", title: "Montu POV - Busch Gardens Tampa" },
+  "SheiKra": { id: "hMnWfk1zYSE", title: "SheiKra POV - Busch Gardens Tampa" },
+  "Iron Gwazi": { id: "TQX7DEPyoBA", title: "Iron Gwazi POV - Busch Gardens Tampa (Official)" },
+  "Kumba": { id: "hMJ2ti4RnHk", title: "Kumba POV - Busch Gardens Tampa" },
+  "Phoenix Rising": { id: "3EqD7eveKtM", title: "Phoenix Rising POV - Busch Gardens Tampa" },
+  "Tigris": { id: "qF6kLKHvNw8", title: "Tigris POV - Busch Gardens Tampa" },
+  "Cheetah Hunt": { id: "KyCbp5N2qJs", title: "Cheetah Hunt POV - Busch Gardens Tampa" },
+  // SeaWorld Orlando
+  "Mako": { id: "lGKq_dpMLlQ", title: "Mako POV - SeaWorld Orlando" },
+  "Pipeline: The Surf Coaster": { id: "BLvC3xNnKXk", title: "Pipeline Surf Coaster POV - SeaWorld Orlando" },
+  "Kraken": { id: "oOWAf_Rlm4w", title: "Kraken POV - SeaWorld Orlando" },
+  // Other
+  "Blue Ridge Mountain Coaster": { id: "k5f8ZT8bMrs", title: "Blue Ridge Mountain Coaster POV" },
 };
 
 const coasters = [
@@ -606,101 +612,15 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
           position: "relative",
         }}
       >
-        {/* Hero Image / Video Section */}
+        {/* Hero Image */}
         <div style={{
+          height: coaster["Image URL"] ? 250 : 120,
+          background: coaster["Image URL"]
+            ? `url(${coaster["Image URL"]}) center/cover`
+            : `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
           borderRadius: "20px 20px 0 0",
           position: "relative",
-          overflow: "hidden",
         }}>
-          {/* Video Embed (when active) */}
-          {showVideo && povVideo ? (
-            <div style={{
-              position: "relative",
-              paddingTop: "56.25%", // 16:9 aspect ratio
-              background: "#000",
-            }}>
-              <iframe
-                src={`https://www.youtube.com/embed/${povVideo.id}?autoplay=1&rel=0`}
-                title={povVideo.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </div>
-          ) : (
-            /* Hero Image (default) */
-            <div style={{
-              height: coaster["Image URL"] ? 250 : 120,
-              background: coaster["Image URL"]
-                ? `url(${coaster["Image URL"]}) center/cover`
-                : `linear-gradient(135deg, ${parkColor}44 0%, ${parkColor}11 100%)`,
-              position: "relative",
-            }}>
-              {/* Play POV Button Overlay */}
-              {povVideo && (
-                <button
-                  onClick={() => setShowVideo(true)}
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: 72,
-                    height: 72,
-                    borderRadius: "50%",
-                    background: "rgba(255,0,0,0.9)",
-                    border: "4px solid rgba(255,255,255,0.9)",
-                    color: "#fff",
-                    fontSize: 28,
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.1)";
-                    e.currentTarget.style.background = "rgba(255,0,0,1)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
-                    e.currentTarget.style.background = "rgba(255,0,0,0.9)";
-                  }}
-                >
-                  ▶
-                </button>
-              )}
-              {povVideo && (
-                <div style={{
-                  position: "absolute",
-                  bottom: 12,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "rgba(0,0,0,0.75)",
-                  backdropFilter: "blur(4px)",
-                  padding: "6px 14px",
-                  borderRadius: 20,
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                }}>
-                  🎬 Watch Front-Seat POV
-                </div>
-              )}
-            </div>
-          )}
-
           {/* Close Button */}
           <button
             onClick={onClose}
@@ -724,32 +644,6 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
           >
             ×
           </button>
-
-          {/* Back to Image Button (when video is playing) */}
-          {showVideo && (
-            <button
-              onClick={() => setShowVideo(false)}
-              style={{
-                position: "absolute",
-                top: 16,
-                left: 16,
-                padding: "8px 14px",
-                borderRadius: 20,
-                background: "rgba(0,0,0,0.7)",
-                border: "none",
-                color: "#fff",
-                fontSize: 11,
-                fontWeight: 600,
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-                zIndex: 10,
-              }}
-            >
-              ← Back to Image
-            </button>
-          )}
         </div>
 
         {/* Content */}
@@ -792,6 +686,95 @@ const CoasterModal = ({ coaster, columns, onClose }) => {
               )
             ))}
           </div>
+
+          {/* POV Video Section */}
+          {povVideo && (
+            <div style={{ marginBottom: 24 }}>
+              {!showVideo ? (
+                <button
+                  onClick={() => setShowVideo(true)}
+                  style={{
+                    width: "100%",
+                    padding: "14px 20px",
+                    background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
+                    border: "none",
+                    borderRadius: 12,
+                    color: "#fff",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 10,
+                    transition: "all 0.2s ease",
+                    boxShadow: "0 4px 15px rgba(255,0,0,0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 6px 20px rgba(255,0,0,0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 4px 15px rgba(255,0,0,0.3)";
+                  }}
+                >
+                  <span style={{ fontSize: 18 }}>▶</span>
+                  🎬 Watch Front-Seat POV Video
+                </button>
+              ) : (
+                <div>
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: 12,
+                  }}>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>
+                      🎬 Front-Seat POV
+                    </span>
+                    <button
+                      onClick={() => setShowVideo(false)}
+                      style={{
+                        padding: "6px 12px",
+                        background: "rgba(255,255,255,0.1)",
+                        border: "none",
+                        borderRadius: 6,
+                        color: "rgba(255,255,255,0.7)",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        cursor: "pointer",
+                      }}
+                    >
+                      ✕ Close Video
+                    </button>
+                  </div>
+                  <div style={{
+                    position: "relative",
+                    paddingTop: "56.25%",
+                    background: "#000",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                  }}>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${povVideo.id}?autoplay=1&rel=0`}
+                      title={povVideo.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Full Details */}
           <div style={{ fontSize: 14, lineHeight: 1.8, color: "rgba(255,255,255,0.7)" }}>
