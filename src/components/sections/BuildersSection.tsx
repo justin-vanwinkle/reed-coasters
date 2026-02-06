@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
-import { coasters, stats, MFR_COLORS } from '../../data';
+import { coasters, stats } from '../../data';
 import type { PieDataPoint } from '../../data/coasters.types';
 import styles from './BuildersSection.module.css';
 

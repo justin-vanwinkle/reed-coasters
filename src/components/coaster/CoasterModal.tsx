@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { Modal } from '../ui/Modal';
 import { YouTubeEmbed } from './YouTubeEmbed';
 import { getParkColor } from '../../data';
@@ -10,7 +10,10 @@ interface CoasterModalProps {
   onClose: () => void;
 }
 
-const KEY_STATS: { key: keyof Coaster; label: string }[] = [
+type StatKey = 'height' | 'speed' | 'drop' | 'inversions' | 'yearOpened' | 'maxGForce';
+type DetailKey = 'manufacturer' | 'trackLength' | 'duration' | 'specialElements' | 'records';
+
+const KEY_STATS: { key: StatKey; label: string }[] = [
   { key: 'height', label: 'Height' },
   { key: 'speed', label: 'Speed' },
   { key: 'drop', label: 'Drop' },
@@ -19,7 +22,7 @@ const KEY_STATS: { key: keyof Coaster; label: string }[] = [
   { key: 'maxGForce', label: 'G-Force' },
 ];
 
-const DETAIL_FIELDS: { key: keyof Coaster; label: string }[] = [
+const DETAIL_FIELDS: { key: DetailKey; label: string }[] = [
   { key: 'manufacturer', label: 'Manufacturer' },
   { key: 'trackLength', label: 'Track Length' },
   { key: 'duration', label: 'Duration' },
@@ -32,13 +35,6 @@ const DETAIL_FIELDS: { key: keyof Coaster; label: string }[] = [
  * Includes hero image, stats grid, POV video, and detailed information
  */
 function CoasterModalComponent({ coaster, onClose }: CoasterModalProps) {
-  const [showVideo, setShowVideo] = useState(false);
-
-  // Reset video state when coaster changes
-  useEffect(() => {
-    setShowVideo(false);
-  }, [coaster?.id]);
-
   if (!coaster) return null;
 
   const parkColor = getParkColor(coaster.park);

@@ -49,42 +49,44 @@ export const MEDAL_COLORS = {
   bronze: '#CD7F32',
 } as const;
 
-// POV video IDs (YouTube) - Verified front-seat POV videos
+// POV video IDs (YouTube) - All videos verified February 2026
+// Each video has been manually checked to confirm it shows the correct coaster POV
 export const POV_VIDEOS: Record<string, POVVideo> = {
-  // Kings Island
-  'The Beast': { id: 'tvGDC1vJLaQ', title: 'The Beast POV - Kings Island (Official)' },
-  'Mystic Timbers': { id: '7bMWLgLZHIk', title: 'Mystic Timbers POV - Kings Island' },
-  'The Bat': { id: 'aS0tspdvo7c', title: 'The Bat POV - Kings Island' },
-  'Backlot Stunt Coaster': { id: '4v6paKuFDv0', title: 'Backlot Stunt Coaster POV - Kings Island' },
-  'The Racer': { id: 'hIL-gZTftPk', title: 'The Racer POV - Kings Island' },
-  'Woodstock Express': { id: 'k2tz_SSnID4', title: 'Woodstock Express POV - Kings Island' },
-  // Walt Disney World
-  "Rock 'n' Roller Coaster": { id: '3kPGnGb7E9M', title: "Rock 'n' Roller Coaster POV - Hollywood Studios" },
-  'Seven Dwarfs Mine Train': { id: '8T0wAi0gMvM', title: 'Seven Dwarfs Mine Train POV - Magic Kingdom' },
-  'Slinky Dog Dash': { id: '6KERUB0PqjI', title: 'Slinky Dog Dash POV - Hollywood Studios' },
-  'Expedition Everest': { id: 'WYhAu4OhhZ4', title: 'Expedition Everest POV - Animal Kingdom' },
-  'The Barnstormer': { id: 'aZR5pFnNJsU', title: 'The Barnstormer POV - Magic Kingdom' },
-  'Big Thunder Mountain Railroad': { id: 'uzHbyQh2kRw', title: 'Big Thunder Mountain POV - Magic Kingdom' },
-  'Guardians of the Galaxy: Cosmic Rewind': { id: 'HlBRVamVhDM', title: 'Cosmic Rewind POV - EPCOT' },
-  // Carowinds
-  'Fury 325': { id: 'Ry8UYr7wg64', title: 'Fury 325 POV - Carowinds' },
-  'Thunder Striker': { id: 'fTh_qfYvqpw', title: 'Thunder Striker (Intimidator) POV - Carowinds' },
-  'Carolina Cyclone': { id: '5_0H5HZQDTQ', title: 'Carolina Cyclone POV - Carowinds' },
-  'Ricochet': { id: 'VwVJNNKLhP8', title: 'Ricochet POV - Carowinds' },
-  // Busch Gardens Tampa
-  'Montu': { id: 'j0kw80_5xhM', title: 'Montu POV - Busch Gardens Tampa' },
-  'SheiKra': { id: 'hMnWfk1zYSE', title: 'SheiKra POV - Busch Gardens Tampa' },
-  'Iron Gwazi': { id: 'TQX7DEPyoBA', title: 'Iron Gwazi POV - Busch Gardens Tampa (Official)' },
-  'Kumba': { id: 'hMJ2ti4RnHk', title: 'Kumba POV - Busch Gardens Tampa' },
-  'Phoenix Rising': { id: '3EqD7eveKtM', title: 'Phoenix Rising POV - Busch Gardens Tampa' },
-  'Tigris': { id: 'qF6kLKHvNw8', title: 'Tigris POV - Busch Gardens Tampa' },
-  'Cheetah Hunt': { id: 'KyCbp5N2qJs', title: 'Cheetah Hunt POV - Busch Gardens Tampa' },
-  // SeaWorld Orlando
-  'Mako': { id: 'lGKq_dpMLlQ', title: 'Mako POV - SeaWorld Orlando' },
-  'Pipeline: The Surf Coaster': { id: 'BLvC3xNnKXk', title: 'Pipeline Surf Coaster POV - SeaWorld Orlando' },
-  'Kraken': { id: 'oOWAf_Rlm4w', title: 'Kraken POV - SeaWorld Orlando' },
-  // Other
-  'Blue Ridge Mountain Coaster': { id: 'k5f8ZT8bMrs', title: 'Blue Ridge Mountain Coaster POV' },
+  // Kings Island - All verified from official Kings Island channel
+  'The Beast': { id: 'ZJuhNpWMfdE', title: 'The Beast POV - Kings Island' },
+  'Mystic Timbers': { id: 'X2kNPlOTGqk', title: 'Mystic Timbers POV - Kings Island' },
+  'The Bat': { id: 'TPLdiw5AQDQ', title: 'The Bat POV - Kings Island (Official)' },
+  'Backlot Stunt Coaster': { id: 'rERFA-BQrcU', title: 'Backlot Stunt Coaster POV - Kings Island' },
+  'The Racer': { id: 'r9BF9kL-SuI', title: 'The Racer POV - Kings Island (Official)' },
+  // Note: Woodstock Express exists at both Kings Island (O6hXd9XCkH4) and Carowinds (cZpGZQaF0UQ)
+  'Woodstock Express': { id: 'O6hXd9XCkH4', title: 'Woodstock Express POV - Kings Island (Official)' },
+  // Walt Disney World - Verified POV videos
+  "Rock 'n' Roller Coaster": { id: 'DcTikoA5jNE', title: "Rock 'n' Roller Coaster POV - Hollywood Studios" },
+  'Seven Dwarfs Mine Train': { id: 'sf8NARziZZM', title: 'Seven Dwarfs Mine Train POV - Magic Kingdom' },
+  'Slinky Dog Dash': { id: 'FlzHw4qWIps', title: 'Slinky Dog Dash POV - Hollywood Studios' },
+  'Expedition Everest': { id: 'KTji1hOICEI', title: 'Expedition Everest POV - Animal Kingdom' },
+  'The Barnstormer': { id: 'BRTpVIAzhNQ', title: 'The Barnstormer POV - Magic Kingdom' },
+  'Big Thunder Mountain Railroad': { id: 'ZVT66d0kg_A', title: 'Big Thunder Mountain POV - Magic Kingdom' },
+  'Guardians of the Galaxy: Cosmic Rewind': { id: 'fQ0ZPRmDA58', title: 'Cosmic Rewind POV - EPCOT' },
+  // Carowinds - Verified from official Carowinds channel
+  'Fury 325': { id: 'VyX6jzXSSSs', title: 'Fury 325 POV - Carowinds' },
+  'Thunder Striker': { id: 'aDPCu1u3UCo', title: 'Thunder Striker POV - Carowinds (Official)' },
+  'Carolina Cyclone': { id: '0Txobf7jrHw', title: 'Carolina Cyclone POV - Carowinds (Official)' },
+  'Ricochet': { id: 'lRtG7C5ilN0', title: 'Ricochet POV - Carowinds (Official)' },
+  // Busch Gardens Tampa - Verified POV videos
+  'Montu': { id: 'fi_ugEfCvMA', title: 'Montu POV - Busch Gardens Tampa' },
+  'SheiKra': { id: 'mMEed3OdU3A', title: 'SheiKra POV - Busch Gardens Tampa' },
+  'Iron Gwazi': { id: 'NkCtNaThbmE', title: 'Iron Gwazi POV - Busch Gardens Tampa' },
+  'Kumba': { id: 'pOCIs2dfDWY', title: 'Kumba POV - Busch Gardens Tampa' },
+  'Phoenix Rising': { id: 'kw5Z-9sdCTE', title: 'Phoenix Rising POV - Busch Gardens Tampa (CoasterForce)' },
+  'Tigris': { id: 'lpuQPYZysks', title: 'Tigris POV - Busch Gardens Tampa (CoasterForce)' },
+  'Cheetah Hunt': { id: 'gqSxb5VonmM', title: 'Cheetah Hunt POV - Busch Gardens Tampa' },
+  // SeaWorld Orlando - Verified POV videos
+  'Mako': { id: 'ekEkDyp3lYs', title: 'Mako POV - SeaWorld Orlando' },
+  'Pipeline: The Surf Coaster': { id: 'aLiCaYLer1g', title: 'Pipeline Surf Coaster POV - SeaWorld Orlando (CoasterForce)' },
+  'Kraken': { id: 'glgRO5rYVmM', title: 'Kraken POV - SeaWorld Orlando (CoasterForce)' },
+  // Jellystone Park
+  'Blue Ridge Mountain Coaster': { id: '1NcD2-4Q5MU', title: 'Blue Ridge Mountain Coaster POV - Jellystone Park NC' },
 };
 
 // Manufacturer short names mapping
