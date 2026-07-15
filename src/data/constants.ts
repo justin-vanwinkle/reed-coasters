@@ -56,8 +56,14 @@ export const POV_VIDEOS: Record<string, POVVideo> = {
   'The Beast': { id: 'ZJuhNpWMfdE', title: 'The Beast POV - Kings Island' },
   'Mystic Timbers': { id: 'X2kNPlOTGqk', title: 'Mystic Timbers POV - Kings Island' },
   'The Bat': { id: 'TPLdiw5AQDQ', title: 'The Bat POV - Kings Island (Official)' },
-  'Backlot Stunt Coaster': { id: 'rERFA-BQrcU', title: 'Backlot Stunt Coaster POV - Kings Island' },
+  'Queen City Stunt Coaster': { id: 'rERFA-BQrcU', title: 'Queen City Stunt Coaster (as Backlot Stunt Coaster) POV - Kings Island' },
   'The Racer': { id: 'r9BF9kL-SuI', title: 'The Racer POV - Kings Island (Official)' },
+  'Flight of Fear': { id: 're_2QhAqC98', title: 'Flight of Fear Lights-On POV - Kings Island (Official)' },
+  'Banshee': { id: 'CpEB0nsXHn8', title: 'Banshee POV - Kings Island (CoasterForce)' },
+  'Diamondback': { id: 'KzgItmEId3g', title: 'Diamondback POV - Kings Island (Theme Park POV)' },
+  'Orion': { id: 'Doh8EukW6Qk', title: 'Orion POV - Kings Island (Official)' },
+  'Invertigo': { id: 'JI1TP1t63lw', title: 'Invertigo POV - Kings Island (Attraction Spot)' },
+  'Adventure Express': { id: 'FNizziH0tB0', title: 'Adventure Express POV - Kings Island (Attraction Spot)' },
   // Note: Woodstock Express exists at both Kings Island (O6hXd9XCkH4) and Carowinds (cZpGZQaF0UQ)
   'Woodstock Express': { id: 'O6hXd9XCkH4', title: 'Woodstock Express POV - Kings Island (Official)' },
   // Walt Disney World - Verified POV videos
