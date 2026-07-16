@@ -52,7 +52,7 @@ function HeightSpeedSectionComponent({ scatterData, speedData }: HeightSpeedSect
                   </div>
                   <div
                     className={styles.dropValue}
-                    style={{ color: (c.dropAngle ?? 0) >= 90 ? '#FF4081' : 'var(--text-primary)' }}
+                    style={{ color: (c.dropAngle ?? 0) >= 90 ? 'var(--color-extreme)' : 'var(--text-primary)' }}
                   >
                     {c.dropAngle}°
                   </div>

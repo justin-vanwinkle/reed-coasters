@@ -8,8 +8,19 @@
 .background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(78, 205, 196, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 100%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 197, 61, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(199, 125, 255, 0.08) 0%, transparent 50%);
+}
+
+/* Decorative coaster track silhouette behind the title */
+.trackSvg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 12px;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
 }
 
 .content {
@@ -18,59 +29,80 @@
 }
 
 .eyebrow {
+  display: inline-block;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   letter-spacing: 4px;
-  color: var(--text-muted);
-  margin-bottom: var(--spacing-sm);
+  color: var(--color-accent);
+  border: 1px dashed rgba(255, 197, 61, 0.4);
+  border-radius: var(--radius-full);
+  padding: 5px 16px;
+  margin-bottom: var(--spacing-lg);
   text-transform: uppercase;
 }
 
 .title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
   font-size: var(--font-size-hero);
-  font-weight: var(--font-weight-black);
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  margin: 0 0 var(--spacing-sm);
-  background: linear-gradient(135deg, #4ecdc4 0%, #ffd93d 35%, #ff6b6b 65%, #4d96ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.15;
+  margin: 0 0 var(--spacing-md);
+  color: #fff8ed;
+  text-shadow:
+    3px 3px 0 #ff5a6e,
+    6px 6px 0 rgba(255, 90, 110, 0.25);
 }
 
 .subtitle {
   font-size: var(--font-size-lg);
   color: var(--text-tertiary);
-  max-width: 500px;
+  max-width: 520px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Coaster-track rule under the subtitle */
+.trackDivider {
+  width: 160px;
+  height: 12px;
   margin: 0 auto var(--spacing-4xl);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12'%3E%3Cpath d='M0 3h40 M0 9h40' stroke='%23FFC53D' stroke-opacity='.35'/%3E%3Cpath d='M6 3v6 M20 3v6 M34 3v6' stroke='%23FFC53D' stroke-opacity='.35' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
 }
 
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--spacing-md);
-  max-width: 700px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
+/* Admission-ticket stat cards: punch-hole notches + perforation rule */
 .statCard {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--card-shadow);
+  mask:
+    radial-gradient(circle 7px at 0 68%, transparent 97%, black) left / 51% 100% no-repeat,
+    radial-gradient(circle 7px at 100% 68%, transparent 97%, black) right / 51% 100% no-repeat;
 }
 
 .statValue {
+  font-family: var(--font-display);
   font-size: var(--font-size-stat);
-  font-weight: var(--font-weight-black);
-  letter-spacing: -1px;
+  letter-spacing: 0;
 }
 
 .statLabel {
   font-size: 10px;
   color: var(--text-muted);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed rgba(255, 255, 255, 0.18);
 }

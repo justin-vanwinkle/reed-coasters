@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
 import { coasters, stats } from '../../data';
+import { PARK_GROUPS } from '../../data/constants';
+import { CHART_COLORS } from '../charts/shared';
 import type { PieDataPoint } from '../../data/coasters.types';
 import styles from './BuildersSection.module.css';
 
@@ -8,14 +10,14 @@ const GEOGRAPHY = [
   {
     state: 'Florida',
     count: 17,
-    color: '#FF6B6B',
+    color: PARK_GROUPS['Busch Gardens Tampa'],
     parks: 'Busch Gardens Tampa (7), SeaWorld Orlando (3), Walt Disney World (7)',
   },
-  { state: 'Ohio', count: 6, color: '#4ECDC4', parks: 'Kings Island (6)' },
+  { state: 'Ohio', count: 6, color: PARK_GROUPS['Kings Island'], parks: 'Kings Island (6)' },
   {
     state: 'North Carolina',
     count: 6,
-    color: '#6BCB77',
+    color: PARK_GROUPS['Carowinds'],
     parks: 'Carowinds (5), Jellystone Park (1)',
   },
 ];
@@ -32,18 +34,7 @@ function BuildersSectionComponent({ mfrPieData }: BuildersSectionProps) {
   });
   const typeData = Object.entries(typeCounts).sort((a, b) => b[1] - a[1]);
 
-  const colors = [
-    '#4ECDC4',
-    '#FFD93D',
-    '#FF6B6B',
-    '#4D96FF',
-    '#6BCB77',
-    '#C084FC',
-    '#FF9A3C',
-    '#00BFA5',
-    '#FF4081',
-    '#8E99A4',
-  ];
+  const colors = CHART_COLORS;
 
   return (
     <div className={styles.grid}>

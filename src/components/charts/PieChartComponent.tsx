@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { DarkTooltip } from '../ui/Tooltip';
+import { CHART_BG, CHART_FONT } from './shared';
 import type { PieDataPoint } from '../../data/coasters.types';
 
 interface PieChartComponentProps {
@@ -32,10 +33,11 @@ function renderLabel({
     <text
       x={x}
       y={y}
-      fill="rgba(255, 255, 255, 0.7)"
+      fill="rgba(255, 255, 255, 0.75)"
       textAnchor={x > cx ? 'start' : 'end'}
       fontSize={11}
       fontWeight={600}
+      fontFamily={CHART_FONT}
     >
       {name} ({value})
     </text>
@@ -53,10 +55,10 @@ function PieChartComponentInner({ data, height = 240 }: PieChartComponentProps) 
           innerRadius={50}
           outerRadius={85}
           dataKey="value"
-          stroke="rgba(0, 0, 0, 0.3)"
-          strokeWidth={2}
+          stroke={CHART_BG}
+          strokeWidth={3}
           label={renderLabel}
-          labelLine={{ stroke: 'rgba(255, 255, 255, 0.2)' }}
+          labelLine={{ stroke: 'rgba(255, 255, 255, 0.3)' }}
         >
           {data.map((d, i) => (
             <Cell key={i} fill={d.fill} />

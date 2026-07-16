@@ -6,20 +6,21 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--glass-bg);
+  background: var(--card-bg);
   min-width: 1000px;
 }
 
 .th {
   padding: var(--spacing-md) var(--spacing-lg);
   text-align: left;
-  background: rgba(78, 205, 196, 0.2);
-  color: var(--color-primary);
+  background: rgba(255, 197, 61, 0.12);
+  color: var(--color-accent);
   white-space: nowrap;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--card-border);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.3px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
 
 .tr {
@@ -27,11 +28,11 @@
 }
 
 .tr:hover {
-  background: var(--glass-bg-hover);
+  background: var(--card-bg-hover);
 }
 
 .trAlt {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .td {
@@ -40,5 +41,6 @@
   color: var(--text-secondary);
   white-space: nowrap;
   font-size: var(--font-size-base);
+  font-variant-numeric: tabular-nums;
   line-height: 1.4;
 }

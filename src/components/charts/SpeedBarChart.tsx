@@ -33,9 +33,9 @@ function SpeedBarChartComponent({ data, limit = 15 }: SpeedBarChartProps) {
           width={130}
         />
         <Tooltip content={<DarkTooltip formatter={(v) => `${v} mph`} />} />
-        <Bar dataKey="speed" radius={[0, 4, 4, 0]} animationDuration={1200} barSize={16}>
+        <Bar dataKey="speed" radius={[0, 6, 6, 0]} animationDuration={1200} barSize={16}>
           {displayData.map((d, i) => (
-            <Cell key={i} fill={d.fill} fillOpacity={0.85} />
+            <Cell key={i} fill={d.fill} />
           ))}
         </Bar>
       </BarChart>

@@ -1,8 +1,11 @@
 .container {
   min-height: 100vh;
-  background: var(--bg-gradient);
+  /* Bulb-field dot grid layered over the dusk-sky gradient */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    var(--bg-gradient);
+  background-size: 28px 28px, auto;
   color: var(--text-primary);
-  font-family: var(--font-family);
+  font-family: var(--font-body);
   padding: 0 0 var(--spacing-5xl);
 }
 

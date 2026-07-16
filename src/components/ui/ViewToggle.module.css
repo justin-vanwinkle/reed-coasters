@@ -6,20 +6,31 @@
 
 .button {
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--glass-bg);
-  border: none;
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-tertiary);
   cursor: pointer;
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   font-size: var(--font-size-base);
   transition: all var(--transition-base);
 }
 
 .button:hover {
-  background: var(--glass-bg-hover);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  color: var(--text-secondary);
 }
 
+/* Arcade button, matches TabNav active state */
 .button.active {
-  background: var(--color-primary);
+  background: var(--color-accent);
+  border-color: transparent;
+  color: #171126;
+  box-shadow: 0 3px 0 #b8860b;
+}
+
+.button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b8860b;
 }

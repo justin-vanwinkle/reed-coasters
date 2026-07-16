@@ -45,12 +45,12 @@ export function truncateName(name: string, maxLength = 18): string {
 
 // Helper to get park color
 export function getParkColor(park: string): string {
-  return PARK_COLORS[park] || '#4ECDC4';
+  return PARK_COLORS[park] || PARK_COLORS['Kings Island'];
 }
 
 // Helper to get manufacturer color
 export function getMfrColor(mfr: string): string {
-  return MFR_COLORS[mfr] || '#8E99A4';
+  return MFR_COLORS[mfr] || MFR_COLORS['Wiegand'];
 }
 
 // Transform raw JSON data into typed Coaster objects with computed fields
@@ -150,7 +150,7 @@ export const parkPieData: PieDataPoint[] = Object.entries(stats.parkCounts)
   .map(([name, value]) => ({
     name,
     value,
-    fill: PARK_GROUPS[name] || '#4ECDC4',
+    fill: PARK_GROUPS[name] || PARK_GROUPS['Kings Island'],
   }));
 
 export const mfrPieData: PieDataPoint[] = Object.entries(stats.mfrCounts)
@@ -158,7 +158,7 @@ export const mfrPieData: PieDataPoint[] = Object.entries(stats.mfrCounts)
   .map(([name, value]) => ({
     name,
     value,
-    fill: MFR_COLORS[name] || '#8E99A4',
+    fill: MFR_COLORS[name] || MFR_COLORS['Wiegand'],
   }));
 
 export const timelineData: TimelineDataPoint[] = coasters

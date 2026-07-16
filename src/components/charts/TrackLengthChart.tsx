@@ -9,7 +9,7 @@ import {
   CartesianGrid,
   Cell,
 } from 'recharts';
-import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE } from './shared';
+import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS } from './shared';
 import type { TrackDataPoint } from '../../data/coasters.types';
 import styles from './TrackLengthChart.module.css';
 
@@ -23,10 +23,10 @@ function TrackLengthChartComponent({ data }: TrackLengthChartProps) {
       <div style={{ minWidth: 700, height: 340 }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={CHART_MARGIN_WITH_LABELS}>
-            <CartesianGrid {...GRID_STYLE} />
+            <CartesianGrid {...GRID_STYLE} vertical={false} />
             <XAxis
               dataKey="name"
-              tick={{ ...AXIS_TICK_STYLE, fontSize: 9, fontWeight: 600 }}
+              tick={{ ...AXIS_TICK_STYLE, fontSize: 10, fontWeight: 600 }}
               angle={-45}
               textAnchor="end"
               interval={0}
@@ -47,9 +47,9 @@ function TrackLengthChartComponent({ data }: TrackLengthChartProps) {
                 );
               }}
             />
-            <Bar dataKey="track" radius={[4, 4, 0, 0]} animationDuration={1500}>
+            <Bar dataKey="track" radius={BAR_RADIUS} animationDuration={1500}>
               {data.map((d, i) => (
-                <Cell key={i} fill={d.fill} fillOpacity={0.85} />
+                <Cell key={i} fill={d.fill} />
               ))}
             </Bar>
           </BarChart>

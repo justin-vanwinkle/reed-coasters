@@ -1,8 +1,23 @@
 .card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-2xl);
+  box-shadow: var(--card-shadow);
   padding: var(--spacing-3xl) var(--spacing-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold ticket color-band, top-left */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--spacing-2xl);
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 0 0 4px 4px;
 }
 
 .span {
@@ -10,11 +25,12 @@
 }
 
 .title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-black);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
+  font-size: 16px;
   color: var(--text-primary);
   margin: 0 0 var(--spacing-xs);
-  letter-spacing: -0.3px;
+  letter-spacing: var(--tracking-display);
 }
 
 .subtitle {

@@ -10,7 +10,7 @@ function ParkLegendComponent() {
     <div className={styles.container}>
       {Object.entries(PARK_GROUPS).map(([name, color]) => (
         <div key={name} className={styles.item}>
-          <div className={styles.dot} style={{ background: color }} />
+          <div className={styles.dot} style={{ background: color, color }} />
           <span className={styles.label}>{name}</span>
         </div>
       ))}
