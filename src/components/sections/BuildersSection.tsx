@@ -1,32 +1,19 @@
 import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
+import { ElementsMatrix, ParkMap } from '../builders';
 import { coasters, stats } from '../../data';
-import { PARK_GROUPS } from '../../data/constants';
 import { CHART_COLORS } from '../charts/shared';
-import type { PieDataPoint } from '../../data/coasters.types';
+import type { Coaster, PieDataPoint } from '../../data/coasters.types';
 import styles from './BuildersSection.module.css';
-
-const GEOGRAPHY = [
-  {
-    state: 'Florida',
-    count: 17,
-    color: PARK_GROUPS['Busch Gardens Tampa'],
-    parks: 'Busch Gardens Tampa (7), SeaWorld Orlando (3), Walt Disney World (7)',
-  },
-  { state: 'Ohio', count: 6, color: PARK_GROUPS['Kings Island'], parks: 'Kings Island (6)' },
-  {
-    state: 'North Carolina',
-    count: 6,
-    color: PARK_GROUPS['Carowinds'],
-    parks: 'Carowinds (5), Jellystone Park (1)',
-  },
-];
 
 interface BuildersSectionProps {
   mfrPieData: PieDataPoint[];
+  // Optional until the dashboard wiring passes it through — the section and
+  // its children are safe to render without a handler in the meantime.
+  onSelectCoaster?: (coaster: Coaster) => void;
 }
 
-function BuildersSectionComponent({ mfrPieData }: BuildersSectionProps) {
+function BuildersSectionComponent({ mfrPieData, onSelectCoaster }: BuildersSectionProps) {
   // Get coaster types
   const typeCounts: Record<string, number> = {};
   coasters.forEach((c) => {
@@ -91,29 +78,16 @@ function BuildersSectionComponent({ mfrPieData }: BuildersSectionProps) {
         </div>
       </GlassCard>
 
-      <GlassCard title="🗺️ Geography" subtitle="Reed's coasters by state">
-        <div className={styles.geoList}>
-          {GEOGRAPHY.map((s, i) => (
-            <div
-              key={i}
-              className={styles.geoCard}
-              style={{
-                background: `${s.color}08`,
-                border: `1px solid ${s.color}22`,
-              }}
-            >
-              <div className={styles.geoContent}>
-                <div className={styles.geoState} style={{ color: s.color }}>
-                  {s.state}
-                </div>
-                <div className={styles.geoParks}>{s.parks}</div>
-              </div>
-              <div className={styles.geoCount} style={{ color: s.color }}>
-                {s.count}
-              </div>
-            </div>
-          ))}
-        </div>
+      <GlassCard
+        title="🎬 Special Elements"
+        subtitle="What the fine print says each ride actually does"
+        span
+      >
+        <ElementsMatrix onSelectCoaster={onSelectCoaster} />
+      </GlassCard>
+
+      <GlassCard title="🗺️ Road Trip Map" subtitle="Reed's coasters by state">
+        <ParkMap />
       </GlassCard>
     </div>
   );

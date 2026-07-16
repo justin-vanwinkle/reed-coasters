@@ -18,12 +18,29 @@ import {
   trackData,
   gforceData,
   recordCategories,
+  pacingData,
+  thrillDensityData,
+  skylineData,
+  SKYLINE_EXCLUDED,
+  recordsMarqueeData,
+  parkGeography,
+  elementsMatrix,
+  elementTagCounts,
+  braveryData,
+  firstsData,
+  odometer,
+  favoritesData,
+  thrillScores,
+  getThrillScore,
+  getRadarData,
   findCoasterByName,
+  findCoasterById,
   getParkColor,
   getMfrColor,
   getParkGroup,
   truncateName,
 } from '../data';
+import type { ElementsMatrixRow } from '../data';
 import type {
   Coaster,
   CoasterStats,
@@ -37,6 +54,17 @@ import type {
   GForceDataPoint,
   DecadeDataPoint,
   RecordCategory,
+  PacingDataPoint,
+  ThrillDensityPoint,
+  SkylinePoint,
+  MarqueeClaim,
+  StateGeo,
+  BraveryPoint,
+  Milestone,
+  OdometerTotals,
+  FavoriteEntry,
+  ThrillScoreEntry,
+  RadarPoint,
 } from '../data/coasters.types';
 
 export interface UseCoasterDataReturn {
@@ -57,8 +85,26 @@ export interface UseCoasterDataReturn {
   gforceData: GForceDataPoint[];
   recordCategories: RecordCategory[];
 
+  // Derived datasets
+  pacingData: PacingDataPoint[];
+  thrillDensityData: ThrillDensityPoint[];
+  skylineData: SkylinePoint[];
+  skylineExcluded: string[];
+  recordsMarqueeData: MarqueeClaim[];
+  parkGeography: StateGeo[];
+  elementsMatrix: ElementsMatrixRow[];
+  elementTagCounts: Record<string, number>;
+  braveryData: BraveryPoint[];
+  firstsData: Milestone[];
+  odometer: OdometerTotals;
+  favoritesData: FavoriteEntry[];
+  thrillScores: ThrillScoreEntry[];
+
   // Utility functions
+  getThrillScore: (id: string) => ThrillScoreEntry | undefined;
+  getRadarData: (coaster: Coaster) => RadarPoint[];
   findCoasterByName: (name: string) => Coaster | undefined;
+  findCoasterById: (id: string) => Coaster | undefined;
   getParkColor: (park: string) => string;
   getMfrColor: (mfr: string) => string;
   getParkGroup: (park: string) => string;
@@ -88,7 +134,23 @@ export function useCoasterData(): UseCoasterDataReturn {
       trackData,
       gforceData,
       recordCategories,
+      pacingData,
+      thrillDensityData,
+      skylineData,
+      skylineExcluded: SKYLINE_EXCLUDED,
+      recordsMarqueeData,
+      parkGeography,
+      elementsMatrix,
+      elementTagCounts,
+      braveryData,
+      firstsData,
+      odometer,
+      favoritesData,
+      thrillScores,
+      getThrillScore,
+      getRadarData,
       findCoasterByName,
+      findCoasterById,
       getParkColor,
       getMfrColor,
       getParkGroup,

@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
 import { InversionBarChart } from '../charts';
+import { ThrillDensityChart } from '../charts/ThrillDensityChart';
 import { stats } from '../../data';
 import type { InversionDataPoint, GForceDataPoint } from '../../data/coasters.types';
 import styles from './InversionsSection.module.css';
@@ -15,6 +16,10 @@ function InversionsSectionComponent({ inversionData, gforceData }: InversionsSec
     <div className={styles.grid}>
       <GlassCard title="🔄 Inversion Kings" subtitle="Coasters that flip you upside down" span>
         <InversionBarChart data={inversionData} />
+      </GlassCard>
+
+      <GlassCard title="🌪️ Flip Density" subtitle="Inversions per minute of ride time" span>
+        <ThrillDensityChart />
       </GlassCard>
 
       <GlassCard title="💥 G-Force Meter" subtitle="How hard these rides push you into your seat">

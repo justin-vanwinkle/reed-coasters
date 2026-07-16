@@ -1,0 +1,68 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.row:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+}
+
+.rank {
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--text-muted);
+}
+
+.rankFirst {
+  color: var(--color-gold);
+}
+
+.info {
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.park {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.tally {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.emoji {
+  font-size: var(--font-size-md);
+  letter-spacing: 2px;
+}
+
+.count {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-display);
+}

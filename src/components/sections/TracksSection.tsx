@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
 import { AnimatedNumber } from '../ui/AnimatedNumber';
 import { TrackLengthChart, TimelineChart } from '../charts';
+import { PacingChart } from '../charts/PacingChart';
 import { stats } from '../../data';
 import type { TrackDataPoint, TimelineDataPoint } from '../../data/coasters.types';
 import styles from './TracksSection.module.css';
@@ -28,6 +29,14 @@ function TracksSectionComponent({ trackData, timelineData }: TracksSectionProps)
 
       <GlassCard title="📏 Track Length Rankings" subtitle="Feet of track per coaster" span>
         <TrackLengthChart data={trackData} />
+      </GlassCard>
+
+      <GlassCard
+        title="🐢➡️🐇 Pacing"
+        subtitle="Top speed vs. whole-ride average — a big number ≠ a relentless ride"
+        span
+      >
+        <PacingChart />
       </GlassCard>
 
       <GlassCard

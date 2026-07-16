@@ -1,0 +1,33 @@
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.inner {
+  min-width: 640px;
+  height: 320px;
+}
+
+.tooltip {
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  max-width: 260px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.value {
+  font-size: var(--font-size-base);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}

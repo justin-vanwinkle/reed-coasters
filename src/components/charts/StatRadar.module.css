@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+}
+
+.tooltip {
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.tooltipAxis {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.tooltipValue {
+  font-size: var(--font-size-base);
+  font-variant-numeric: tabular-nums;
+  margin: 2px 0;
+}

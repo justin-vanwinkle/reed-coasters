@@ -122,3 +122,105 @@ export interface RecordCategory {
   icon: string;
   data: Coaster[];
 }
+
+// Derived-data types (see derived.ts / reed.ts / thrillScore.ts)
+
+export interface PacingDataPoint {
+  name: string;
+  fullName: string;
+  avgSpeed: number;
+  topSpeed: number;
+  fill: string;
+  park: string;
+}
+
+export interface ThrillDensityPoint {
+  name: string;
+  fullName: string;
+  inversions: number;
+  perMinute: number;
+  fill: string;
+  park: string;
+}
+
+export interface SkylinePoint {
+  id: string;
+  name: string;
+  height: number;
+  drop: number | null;
+  park: string;
+  fill: string;
+}
+
+export interface MarqueeClaim {
+  coasterId: string;
+  coasterName: string;
+  park: string;
+  fill: string;
+  claim: string;
+}
+
+export interface StateGeo {
+  state: string;
+  count: number;
+  parks: { name: string; count: number; color: string }[];
+  color: string;
+}
+
+export interface BraveryPoint {
+  age: number;
+  maxHeight: number;
+  maxSpeed: number;
+  maxInversions: number;
+  tallestName: string;
+  fastestName: string;
+  newCount: number;
+}
+
+export interface Milestone {
+  age: number;
+  label: string;
+  detail: string;
+  coasterId: string;
+  coasterName: string;
+  icon: string;
+  fill: string;
+}
+
+export interface OdometerTotals {
+  totalRides: number;
+  totalFeet: number;
+  totalMiles: number;
+  totalSeconds: number;
+  totalUpsideDown: number;
+  coastersExcludedFromFeet: string[];
+}
+
+export interface FavoriteEntry {
+  id: string;
+  name: string;
+  park: string;
+  fill: string;
+  timesRidden: number;
+}
+
+export interface ThrillScoreBreakdown {
+  height: number;
+  speed: number;
+  inversions: number;
+  dropAngle: number;
+  trackLength: number;
+  elements: number;
+}
+
+export interface ThrillScoreEntry {
+  coaster: Coaster;
+  score: number;
+  breakdown: ThrillScoreBreakdown;
+}
+
+export interface RadarPoint {
+  axis: string;
+  value: number;
+  raw: string;
+}

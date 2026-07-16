@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { RecordPodium } from '../records/RecordPodium';
+import { RecordsMarquee } from '../records/RecordsMarquee';
 import type { Coaster, RecordCategory } from '../../data/coasters.types';
 import styles from './RecordsSection.module.css';
 
@@ -11,6 +12,9 @@ interface RecordsSectionProps {
 function RecordsSectionComponent({ recordCategories, onSelectCoaster }: RecordsSectionProps) {
   return (
     <div className={styles.container}>
+      {/* Marquee ticker of every record claim */}
+      <RecordsMarquee onSelectCoaster={onSelectCoaster} />
+
       {/* Hero Header */}
       <div className={styles.header}>
         <div className={styles.trophy}>🏆</div>

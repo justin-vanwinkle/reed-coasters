@@ -75,39 +75,3 @@
   color: var(--text-secondary);
   font-weight: var(--font-weight-semibold);
 }
-
-.geoList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.geoCard {
-  padding: var(--spacing-lg) 18px;
-  border-radius: var(--radius-xl);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.geoContent {
-  display: flex;
-  flex-direction: column;
-}
-
-.geoState {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-black);
-}
-
-.geoParks {
-  font-size: 10px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-.geoCount {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-black);
-  opacity: 0.8;
-}

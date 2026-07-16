@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Modal } from '../ui/Modal';
 import { YouTubeEmbed } from './YouTubeEmbed';
+import { StatRadar, hasRadarData } from '../charts/StatRadar';
 import { getParkColor } from '../../data';
 import type { Coaster } from '../../data/coasters.types';
 import styles from './CoasterModal.module.css';
@@ -87,6 +88,14 @@ function CoasterModalComponent({ coaster, onClose }: CoasterModalProps) {
             );
           })}
         </div>
+
+        {/* Stat Pentagon */}
+        {hasRadarData(coaster) && (
+          <div className={styles.radarSection}>
+            <h3 className={styles.sectionHeading}>Stat Pentagon</h3>
+            <StatRadar coaster={coaster} />
+          </div>
+        )}
 
         {/* POV Video */}
         {coaster.povVideo && (
