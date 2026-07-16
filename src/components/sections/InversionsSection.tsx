@@ -27,7 +27,7 @@ function InversionsSectionComponent({ inversionData, gforceData }: InversionsSec
                 </span>
                 <span
                   className={styles.gforceValue}
-                  style={{ color: c.gforce >= 4.5 ? '#FF4081' : 'var(--text-primary)' }}
+                  style={{ color: c.gforce >= 4.5 ? 'var(--color-extreme)' : 'var(--text-primary)' }}
                 >
                   {c.gforce} G
                 </span>
@@ -39,7 +39,7 @@ function InversionsSectionComponent({ inversionData, gforceData }: InversionsSec
                     width: `${(c.gforce / 5.5) * 100}%`,
                     background:
                       c.gforce >= 4.5
-                        ? 'linear-gradient(90deg, #FF6B6B, #FF4081)'
+                        ? 'linear-gradient(90deg, #FF5A6E, #FF4D9D)'
                         : `linear-gradient(90deg, ${c.fill}66, ${c.fill})`,
                   }}
                 >

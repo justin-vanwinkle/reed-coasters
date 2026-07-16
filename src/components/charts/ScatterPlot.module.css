@@ -1,15 +1,17 @@
 .tooltip {
-  background: rgba(15, 20, 35, 0.95);
-  border: 1px solid var(--glass-border-hover);
-  border-radius: var(--radius-md);
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  border-radius: var(--radius-lg);
   padding: 10px 14px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
   color: var(--text-primary);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-md);
+  font-size: 12px;
+  letter-spacing: 0.3px;
   margin: 0 0 var(--spacing-xs);
 }
 

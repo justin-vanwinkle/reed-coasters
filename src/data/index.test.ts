@@ -24,6 +24,7 @@ import {
   truncateName,
   findCoasterByName,
 } from './index';
+import { PARK_COLORS, MFR_COLORS } from './constants';
 
 describe('getParkGroup', () => {
   it('returns "Walt Disney World" for Disney parks', () => {
@@ -64,23 +65,23 @@ describe('truncateName', () => {
 
 describe('getParkColor', () => {
   it('returns correct color for known parks', () => {
-    expect(getParkColor('Kings Island')).toBe('#4ECDC4');
-    expect(getParkColor('Carowinds')).toBe('#6BCB77');
+    expect(getParkColor('Kings Island')).toBe(PARK_COLORS['Kings Island']);
+    expect(getParkColor('Carowinds')).toBe(PARK_COLORS['Carowinds']);
   });
 
   it('returns default color for unknown parks', () => {
-    expect(getParkColor('Unknown Park')).toBe('#4ECDC4');
+    expect(getParkColor('Unknown Park')).toBe(PARK_COLORS['Kings Island']);
   });
 });
 
 describe('getMfrColor', () => {
   it('returns correct color for known manufacturers', () => {
-    expect(getMfrColor('B&M')).toBe('#FF6B6B');
-    expect(getMfrColor('Intamin')).toBe('#FF9A3C');
+    expect(getMfrColor('B&M')).toBe(MFR_COLORS['B&M']);
+    expect(getMfrColor('Intamin')).toBe(MFR_COLORS['Intamin']);
   });
 
   it('returns default color for unknown manufacturers', () => {
-    expect(getMfrColor('Unknown Manufacturer')).toBe('#8E99A4');
+    expect(getMfrColor('Unknown Manufacturer')).toBe(MFR_COLORS['Wiegand']);
   });
 });
 

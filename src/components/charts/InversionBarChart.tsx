@@ -10,7 +10,7 @@ import {
   Cell,
 } from 'recharts';
 import { DarkTooltip } from '../ui/Tooltip';
-import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE } from './shared';
+import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS } from './shared';
 import type { InversionDataPoint } from '../../data/coasters.types';
 
 interface InversionBarChartProps {
@@ -21,7 +21,7 @@ function InversionBarChartComponent({ data }: InversionBarChartProps) {
   return (
     <ResponsiveContainer width="100%" height={260}>
       <BarChart data={data} margin={CHART_MARGIN}>
-        <CartesianGrid {...GRID_STYLE} />
+        <CartesianGrid {...GRID_STYLE} vertical={false} />
         <XAxis
           dataKey="name"
           tick={{ ...AXIS_TICK_STYLE, fontSize: 10, fontWeight: 600 }}
@@ -35,9 +35,9 @@ function InversionBarChartComponent({ data }: InversionBarChartProps) {
           allowDecimals={false}
         />
         <Tooltip content={<DarkTooltip formatter={(v) => `${v} inversions`} />} />
-        <Bar dataKey="inversions" radius={[6, 6, 0, 0]} animationDuration={1200} barSize={40}>
+        <Bar dataKey="inversions" radius={BAR_RADIUS} animationDuration={1200} barSize={40}>
           {data.map((d, i) => (
-            <Cell key={i} fill={d.fill} fillOpacity={0.85} />
+            <Cell key={i} fill={d.fill} />
           ))}
         </Bar>
       </BarChart>

@@ -44,7 +44,7 @@
 
 .closeButton {
   padding: 6px 12px;
-  background: var(--glass-bg);
+  background: var(--card-bg);
   border: none;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
@@ -54,7 +54,7 @@
 }
 
 .closeButton:hover {
-  background: var(--glass-bg-hover);
+  background: var(--card-bg-hover);
 }
 
 .videoWrapper {

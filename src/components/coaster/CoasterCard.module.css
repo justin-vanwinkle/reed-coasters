@@ -1,8 +1,9 @@
 .card {
-  background: var(--glass-bg);
+  background: var(--card-bg);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
   cursor: pointer;
   transition: all var(--transition-slow);
 }
@@ -33,7 +34,10 @@
   position: absolute;
   bottom: var(--spacing-md);
   left: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(18, 13, 31, 0.8);
   backdrop-filter: blur(4px);
   padding: 6px 12px;
   border-radius: var(--radius-full);
@@ -42,17 +46,29 @@
   color: var(--park-color);
 }
 
+.parkBadge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--park-color);
+  flex-shrink: 0;
+}
+
+/* Mini admission ticket */
 .yearBadge {
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(18, 13, 31, 0.8);
   backdrop-filter: blur(4px);
   padding: 4px 10px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(255, 197, 61, 0.5);
   font-size: 10px;
   font-weight: var(--font-weight-bold);
-  color: var(--color-warning);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
 }
 
 .content {
@@ -60,11 +76,12 @@
 }
 
 .name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
   color: var(--text-primary);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-black);
+  font-size: 14px;
   margin: 0 0 var(--spacing-md);
-  letter-spacing: -0.3px;
+  letter-spacing: var(--tracking-display);
 }
 
 .stats {
@@ -82,6 +99,7 @@
 .statValue {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-black);
+  font-variant-numeric: tabular-nums;
   color: var(--park-color);
 }
 

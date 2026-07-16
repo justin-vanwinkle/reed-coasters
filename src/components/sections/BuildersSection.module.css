@@ -33,7 +33,7 @@
 
 .mfrBar {
   height: 20px;
-  background: var(--glass-bg);
+  background: var(--card-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }

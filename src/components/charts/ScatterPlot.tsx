@@ -9,7 +9,7 @@ import {
   CartesianGrid,
   Cell,
 } from 'recharts';
-import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE } from './shared';
+import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE, CHART_FONT } from './shared';
 import type { ScatterDataPoint } from '../../data/coasters.types';
 import styles from './ScatterPlot.module.css';
 
@@ -32,8 +32,9 @@ function ScatterPlotComponent({ data }: ScatterPlotProps) {
             value: 'Height (ft)',
             position: 'bottom',
             offset: 0,
-            fill: 'rgba(255, 255, 255, 0.3)',
+            fill: 'rgba(255, 255, 255, 0.55)',
             fontSize: 11,
+            fontFamily: CHART_FONT,
           }}
         />
         <YAxis
@@ -46,8 +47,9 @@ function ScatterPlotComponent({ data }: ScatterPlotProps) {
             value: 'Speed (mph)',
             angle: -90,
             position: 'insideLeft',
-            fill: 'rgba(255, 255, 255, 0.3)',
+            fill: 'rgba(255, 255, 255, 0.55)',
             fontSize: 11,
+            fontFamily: CHART_FONT,
           }}
         />
         <Tooltip
@@ -72,7 +74,14 @@ function ScatterPlotComponent({ data }: ScatterPlotProps) {
         />
         <Scatter data={data} animationDuration={1200}>
           {data.map((d, i) => (
-            <Cell key={i} fill={d.fill} fillOpacity={0.7} r={Math.max(d.z, 4)} />
+            <Cell
+              key={i}
+              fill={d.fill}
+              fillOpacity={0.85}
+              stroke="rgba(255, 255, 255, 0.25)"
+              strokeWidth={1}
+              r={Math.max(d.z, 4)}
+            />
           ))}
         </Scatter>
       </ScatterChart>

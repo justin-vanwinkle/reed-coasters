@@ -10,7 +10,7 @@ import {
   CartesianGrid,
   Cell,
 } from 'recharts';
-import { AXIS_TICK_STYLE, GRID_STYLE } from './shared';
+import { AXIS_TICK_STYLE, GRID_STYLE, CHART_BG, CHART_FONT } from './shared';
 import type { TimelineDataPoint } from '../../data/coasters.types';
 import styles from './TimelineChart.module.css';
 
@@ -28,29 +28,31 @@ function TimelineChartComponent({ data }: TimelineChartProps) {
             <XAxis dataKey="year" tick={AXIS_TICK_STYLE} />
             <YAxis
               yAxisId="h"
-              tick={{ fill: 'rgba(255, 255, 255, 0.3)', fontSize: 10 }}
+              tick={{ ...AXIS_TICK_STYLE, fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               label={{
                 value: 'Height (ft)',
                 angle: -90,
                 position: 'insideLeft',
-                fill: 'rgba(255, 255, 255, 0.25)',
+                fill: 'rgba(255, 255, 255, 0.55)',
                 fontSize: 10,
+                fontFamily: CHART_FONT,
               }}
             />
             <YAxis
               yAxisId="s"
               orientation="right"
-              tick={{ fill: 'rgba(255, 255, 255, 0.3)', fontSize: 10 }}
+              tick={{ ...AXIS_TICK_STYLE, fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               label={{
                 value: 'Speed (mph)',
                 angle: 90,
                 position: 'insideRight',
-                fill: 'rgba(255, 255, 255, 0.25)',
+                fill: 'rgba(255, 255, 255, 0.55)',
                 fontSize: 10,
+                fontFamily: CHART_FONT,
               }}
             />
             <Tooltip
@@ -88,9 +90,9 @@ function TimelineChartComponent({ data }: TimelineChartProps) {
               yAxisId="s"
               type="monotone"
               dataKey="speed"
-              stroke="#FF6B6B"
+              stroke="#FFC53D"
               strokeWidth={2}
-              dot={{ r: 4, fill: '#FF6B6B', stroke: '#0a0e1a', strokeWidth: 2 }}
+              dot={{ r: 4, fill: '#FFC53D', stroke: CHART_BG, strokeWidth: 2 }}
               animationDuration={1500}
             />
           </ComposedChart>

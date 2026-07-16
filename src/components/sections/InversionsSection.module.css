@@ -33,7 +33,7 @@
 
 .gforceBar {
   height: 24px;
-  background: var(--glass-bg);
+  background: var(--card-bg);
   border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
@@ -60,7 +60,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  border-left: 1px dashed var(--glass-border-hover);
+  border-left: 1px dashed var(--card-border-hover);
 }
 
 .gforceScale {

@@ -1,31 +1,45 @@
 .container {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
   padding: 0 var(--spacing-lg) var(--spacing-2xl);
   flex-wrap: wrap;
 }
 
 .tab {
   padding: var(--spacing-sm) 18px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--glass-border);
-  background: transparent;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
   color: var(--text-tertiary);
+  font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: all var(--transition-base);
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 
 .tab:hover {
-  border-color: var(--glass-border-hover);
+  border-color: var(--card-border-hover);
+  background: var(--card-bg-hover);
   color: var(--text-secondary);
 }
 
+/* Arcade button: solid gold, dark text, pressed-3D bottom edge */
 .tab.active {
-  border-color: rgba(78, 205, 196, 0.5);
-  background: rgba(78, 205, 196, 0.15);
-  color: var(--color-primary);
+  border-color: transparent;
+  background: var(--color-accent);
+  color: #171126;
+  box-shadow: 0 3px 0 #b8860b;
+}
+
+.tab.active:hover {
+  background: var(--color-accent);
+  color: #171126;
+}
+
+.tab:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b8860b;
 }

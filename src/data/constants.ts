@@ -6,40 +6,42 @@
 import type { POVVideo } from './coasters.types';
 
 // Park colors for visualizations
+// NOTE: hexes must byte-match the tokens in src/styles/variables.css
 export const PARK_COLORS: Record<string, string> = {
-  'Kings Island': '#4ECDC4',
-  'Hollywood Studios': '#FFD93D',
-  'Magic Kingdom': '#FFD93D',
-  'EPCOT': '#FFD93D',
-  'Animal Kingdom': '#FFD93D',
-  'Carowinds': '#6BCB77',
-  'Busch Gardens Tampa': '#FF6B6B',
-  'SeaWorld Orlando': '#4D96FF',
-  'Jellystone Park': '#C084FC',
+  'Kings Island': '#2CE5C9',
+  'Hollywood Studios': '#FFC53D',
+  'Magic Kingdom': '#FFC53D',
+  'EPCOT': '#FFC53D',
+  'Animal Kingdom': '#FFC53D',
+  'Carowinds': '#6EE05C',
+  'Busch Gardens Tampa': '#FF5A6E',
+  'SeaWorld Orlando': '#54A8FF',
+  'Jellystone Park': '#C77DFF',
 };
 
 // Grouped parks (Disney parks grouped as "Walt Disney World")
 export const PARK_GROUPS: Record<string, string> = {
-  'Kings Island': '#4ECDC4',
-  'Walt Disney World': '#FFD93D',
-  'Carowinds': '#6BCB77',
-  'Busch Gardens Tampa': '#FF6B6B',
-  'SeaWorld Orlando': '#4D96FF',
-  'Jellystone Park': '#C084FC',
+  'Kings Island': '#2CE5C9',
+  'Walt Disney World': '#FFC53D',
+  'Carowinds': '#6EE05C',
+  'Busch Gardens Tampa': '#FF5A6E',
+  'SeaWorld Orlando': '#54A8FF',
+  'Jellystone Park': '#C77DFF',
 };
 
 // Manufacturer colors
+// NOTE: hexes must byte-match the tokens in src/styles/variables.css
 export const MFR_COLORS: Record<string, string> = {
-  'B&M': '#FF6B6B',
-  'Vekoma': '#4D96FF',
-  'Arrow': '#FFD93D',
-  'PTC': '#4ECDC4',
-  'Premier': '#C084FC',
-  'Intamin': '#FF9A3C',
-  'GCI': '#6BCB77',
-  'RMC': '#FF4081',
-  'Mack': '#00BFA5',
-  'Wiegand': '#8E99A4',
+  'B&M': '#FF5A6E',
+  'Vekoma': '#54A8FF',
+  'Arrow': '#FFC53D',
+  'PTC': '#2CE5C9',
+  'Premier': '#C77DFF',
+  'Intamin': '#FF9440',
+  'GCI': '#6EE05C',
+  'RMC': '#FF4D9D',
+  'Mack': '#00D4A0',
+  'Wiegand': '#9FA8C9',
 };
 
 // Medal colors for podium displays

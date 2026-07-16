@@ -1,28 +1,31 @@
 /**
  * CSS Custom Properties
- * Design system tokens for the coaster dashboard
+ * Design system tokens for the coaster dashboard — "Midway at Night" theme.
+ *
+ * NOTE: Park and manufacturer hexes must byte-match src/data/constants.ts
+ * (charts read colors from TS, CSS reads them from here).
  */
 
 :root {
   /* Park Colors */
-  --color-kings-island: #4ECDC4;
-  --color-disney: #FFD93D;
-  --color-carowinds: #6BCB77;
-  --color-busch-gardens: #FF6B6B;
-  --color-seaworld: #4D96FF;
-  --color-jellystone: #C084FC;
+  --color-kings-island: #2CE5C9;
+  --color-disney: #FFC53D;
+  --color-carowinds: #6EE05C;
+  --color-busch-gardens: #FF5A6E;
+  --color-seaworld: #54A8FF;
+  --color-jellystone: #C77DFF;
 
   /* Manufacturer Colors */
-  --color-bm: #FF6B6B;
-  --color-vekoma: #4D96FF;
-  --color-arrow: #FFD93D;
-  --color-ptc: #4ECDC4;
-  --color-premier: #C084FC;
-  --color-intamin: #FF9A3C;
-  --color-gci: #6BCB77;
-  --color-rmc: #FF4081;
-  --color-mack: #00BFA5;
-  --color-wiegand: #8E99A4;
+  --color-bm: #FF5A6E;
+  --color-vekoma: #54A8FF;
+  --color-arrow: #FFC53D;
+  --color-ptc: #2CE5C9;
+  --color-premier: #C77DFF;
+  --color-intamin: #FF9440;
+  --color-gci: #6EE05C;
+  --color-rmc: #FF4D9D;
+  --color-mack: #00D4A0;
+  --color-wiegand: #9FA8C9;
 
   /* Medal Colors */
   --color-gold: #FFD700;
@@ -30,53 +33,63 @@
   --color-bronze: #CD7F32;
 
   /* Semantic Colors */
-  --color-primary: #4ECDC4;
-  --color-warning: #FFD93D;
-  --color-danger: #FF6B6B;
-  --color-info: #4D96FF;
-  --color-extreme: #FF4081;
+  --color-primary: #2CE5C9;
+  --color-accent: #FFC53D;
+  --color-warning: #FFC53D;
+  --color-danger: #FF5A6E;
+  --color-info: #54A8FF;
+  --color-extreme: #FF4D9D;
 
   /* Background Colors */
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #111827;
-  --bg-tertiary: #0f172a;
-  --bg-gradient: linear-gradient(145deg, var(--bg-primary) 0%, var(--bg-secondary) 40%, var(--bg-tertiary) 100%);
+  --bg-primary: #171126;
+  --bg-secondary: #1D1533;
+  --bg-tertiary: #120D1F;
+  --bg-gradient: linear-gradient(170deg, #221740 0%, #171126 45%, #120D1F 100%);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-bg-hover: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(255, 255, 255, 0.15);
-  --glass-backdrop: blur(8px);
+  /* Card Surfaces (poster panels) */
+  --card-bg: #211A38;
+  --card-bg-hover: #2A2145;
+  --card-border: rgba(255, 255, 255, 0.10);
+  --card-border-hover: rgba(255, 255, 255, 0.22);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  /* Tooltip */
+  --tooltip-bg: #241C3D;
+  --tooltip-border: rgba(255, 197, 61, 0.35);
 
   /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-tertiary: rgba(255, 255, 255, 0.5);
-  --text-muted: rgba(255, 255, 255, 0.35);
-  --text-subtle: rgba(255, 255, 255, 0.2);
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-tertiary: rgba(255, 255, 255, 0.58);
+  --text-muted: rgba(255, 255, 255, 0.42);
+  --text-subtle: rgba(255, 255, 255, 0.25);
 
   /* Typography */
-  --font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Bungee', 'Arial Black', sans-serif;
+  --font-body: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: var(--font-body);
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-black: 900;
+  --font-weight-black: 800;
 
   /* Font Sizes */
-  --font-size-xs: 9px;
+  --font-size-xs: 10px;
   --font-size-sm: 11px;
-  --font-size-base: 12px;
-  --font-size-md: 13px;
-  --font-size-lg: 14px;
+  --font-size-base: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 15px;
   --font-size-xl: 17px;
   --font-size-2xl: 18px;
   --font-size-3xl: 22px;
   --font-size-4xl: 28px;
-  --font-size-hero: clamp(28px, 5vw, 44px);
-  --font-size-stat: clamp(22px, 3.5vw, 32px);
-  --font-size-mega: clamp(32px, 6vw, 52px);
+  --font-size-hero: clamp(30px, 5vw, 54px);
+  --font-size-stat: clamp(20px, 3vw, 30px);
+  --font-size-mega: clamp(30px, 5.5vw, 48px);
+
+  /* Display font tracking (Bungee wants air, not negative tracking) */
+  --tracking-display: 0.5px;
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -100,7 +113,7 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -118,10 +131,10 @@
   --z-tooltip: 1002;
 
   /* Container */
-  --container-max-width: 1000px;
+  --container-max-width: 1140px;
 
   /* Chart */
-  --chart-grid-stroke: rgba(255, 255, 255, 0.05);
-  --chart-axis-stroke: rgba(255, 255, 255, 0.4);
-  --chart-label-color: rgba(255, 255, 255, 0.5);
+  --chart-grid-stroke: rgba(255, 255, 255, 0.07);
+  --chart-axis-stroke: rgba(255, 255, 255, 0.55);
+  --chart-label-color: rgba(255, 255, 255, 0.65);
 }
