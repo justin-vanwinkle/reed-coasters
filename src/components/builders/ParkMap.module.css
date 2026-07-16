@@ -1,0 +1,96 @@
+.roadTrip {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.stateCard {
+  padding: var(--spacing-lg) 18px;
+  border-radius: var(--radius-xl);
+}
+
+.stateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-md);
+}
+
+.stateName {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  letter-spacing: var(--tracking-display);
+}
+
+.stateCount {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+  line-height: 1;
+}
+
+.parkChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs) var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.parkChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px var(--spacing-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-full);
+}
+
+.parkDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.parkName {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.parkCount {
+  font-size: var(--font-size-xs);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-black);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dashed "drive south" connector between state cards */
+.leg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.legLine {
+  width: 0;
+  height: 14px;
+  border-left: 2px dashed var(--text-subtle);
+}
+
+.legCar {
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  transform: rotate(90deg);
+}
+
+.note {
+  margin: var(--spacing-md) 0 0;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-style: italic;
+}

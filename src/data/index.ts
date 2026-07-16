@@ -3,15 +3,15 @@
  * Single source of truth for all coaster data and derived computations
  */
 
-import rawCoasters from './coasters.json';
+import { PARK_GROUPS, MFR_COLORS } from './constants';
 import {
-  PARK_COLORS,
-  PARK_GROUPS,
-  MFR_COLORS,
-  MFR_SHORT_NAMES,
-  DISNEY_PARKS,
-  POV_VIDEOS,
-} from './constants';
+  coasters,
+  getParkGroup,
+  getParkColor,
+  getMfrColor,
+  truncateName,
+  findCoasterById,
+} from './core';
 import type {
   Coaster,
   CoasterStats,
@@ -27,39 +27,9 @@ import type {
   RecordCategory,
 } from './coasters.types';
 
-// Helper to get park group (Disney parks grouped as "Walt Disney World")
-export function getParkGroup(park: string): string {
-  if (DISNEY_PARKS.includes(park)) return 'Walt Disney World';
-  return park;
-}
-
-// Helper to get manufacturer short name
-function getMfrShortName(manufacturer: string): string {
-  return MFR_SHORT_NAMES[manufacturer] || manufacturer;
-}
-
-// Helper to truncate long names
-export function truncateName(name: string, maxLength = 18): string {
-  return name.length > maxLength ? name.slice(0, maxLength - 2) + '…' : name;
-}
-
-// Helper to get park color
-export function getParkColor(park: string): string {
-  return PARK_COLORS[park] || PARK_COLORS['Kings Island'];
-}
-
-// Helper to get manufacturer color
-export function getMfrColor(mfr: string): string {
-  return MFR_COLORS[mfr] || MFR_COLORS['Wiegand'];
-}
-
-// Transform raw JSON data into typed Coaster objects with computed fields
-export const coasters: Coaster[] = rawCoasters.map((c) => ({
-  ...c,
-  parkGroup: getParkGroup(c.park),
-  manufacturerShort: getMfrShortName(c.manufacturer),
-  povVideo: POV_VIDEOS[c.name] || null,
-}));
+// Core dataset + lookup helpers live in core.ts (so derived-data modules can
+// import them without circular dependencies); re-exported here for consumers
+export { coasters, getParkGroup, getParkColor, getMfrColor, truncateName, findCoasterById };
 
 // Computed statistics
 export const stats: CoasterStats = {
@@ -221,12 +191,36 @@ export const recordCategories: RecordCategory[] = [
 ];
 
 // Find coaster by name (for modal lookups)
+// NOTE: names are not unique (two "Woodstock Express") — prefer findCoasterById
 export function findCoasterByName(name: string): Coaster | undefined {
   return coasters.find((c) => c.name === name);
 }
+
+// Derived-data modules
+export {
+  parseDurationToSeconds,
+  pacingData,
+  thrillDensityData,
+  skylineData,
+  SKYLINE_EXCLUDED,
+  REFERENCE_OBJECTS,
+  recordsMarqueeData,
+  parkGeography,
+} from './derived';
+export type { ReferenceObject } from './derived';
+export {
+  ELEMENT_TAGS,
+  ELEMENT_OVERRIDES,
+  extractElementTags,
+  elementsMatrix,
+  elementTagCounts,
+} from './elements';
+export type { ElementTag, ElementsMatrixRow } from './elements';
+export { braveryData, firstsData, odometer, favoritesData } from './reed';
+export { thrillScores, getThrillScore, getRadarData } from './thrillScore';
 
 // Re-export types for convenience
 export type { Coaster, CoasterStats, POVVideo } from './coasters.types';
 
 // Re-export constants
-export { PARK_COLORS, PARK_GROUPS, MFR_COLORS, MEDAL_COLORS, POV_VIDEOS } from './constants';
+export { PARK_COLORS, PARK_GROUPS, MFR_COLORS, MEDAL_COLORS, POV_VIDEOS, PARK_STATES } from './constants';

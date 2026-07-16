@@ -1,22 +1,37 @@
 import { memo } from 'react';
 import { GlassCard } from '../ui/GlassCard';
 import { ScatterPlot, SpeedBarChart } from '../charts';
+import { SkylineChart } from '../charts/SkylineChart';
 import { getParkColor, coasters } from '../../data';
-import type { ScatterDataPoint, SpeedDataPoint } from '../../data/coasters.types';
+import type { Coaster, ScatterDataPoint, SpeedDataPoint } from '../../data/coasters.types';
 import styles from './HeightSpeedSection.module.css';
 
 interface HeightSpeedSectionProps {
   scatterData: ScatterDataPoint[];
   speedData: SpeedDataPoint[];
+  onSelectCoaster?: (coaster: Coaster) => void;
 }
 
-function HeightSpeedSectionComponent({ scatterData, speedData }: HeightSpeedSectionProps) {
+const noopSelect = () => {};
+
+function HeightSpeedSectionComponent({
+  scatterData,
+  speedData,
+  onSelectCoaster = noopSelect,
+}: HeightSpeedSectionProps) {
   const dropAngleCoasters = coasters
     .filter((c) => c.dropAngle)
     .sort((a, b) => (b.dropAngle ?? 0) - (a.dropAngle ?? 0));
 
   return (
     <div className={styles.container}>
+      <GlassCard
+        title="🌃 The Skyline — every lift hill, to scale"
+        subtitle="Reference silhouettes in gray. Click a hill for details."
+      >
+        <SkylineChart onSelectCoaster={onSelectCoaster} />
+      </GlassCard>
+
       <GlassCard
         title="⚡ Height vs Speed"
         subtitle="Does taller always mean faster? Bubble size = track length"

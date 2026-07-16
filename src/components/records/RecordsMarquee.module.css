@@ -1,0 +1,88 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: var(--spacing-sm) 0;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 120s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.claim {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  padding: var(--spacing-xs) var(--spacing-xl);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.claim:hover {
+  color: var(--text-primary);
+}
+
+.star {
+  font-size: var(--font-size-sm);
+}
+
+.coasterName {
+  font-weight: var(--font-weight-bold);
+}
+
+.staticList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs) 0;
+  padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.staticList .claim {
+  white-space: normal;
+  text-align: left;
+}
+
+.moreNote {
+  padding: var(--spacing-xs) var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-semibold);
+}

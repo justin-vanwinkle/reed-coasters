@@ -87,6 +87,20 @@
   letter-spacing: 0.5px;
 }
 
+.radarSection {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.sectionHeading {
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 0 0 var(--spacing-sm);
+}
+
 .videoSection {
   margin-bottom: var(--spacing-2xl);
 }

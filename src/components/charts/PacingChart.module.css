@@ -1,0 +1,72 @@
+.legend {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.swatchTop {
+  background: var(--color-accent);
+}
+
+.swatchAvg {
+  background: var(--color-accent);
+  opacity: 0.4;
+}
+
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.inner {
+  min-width: 900px;
+  height: 340px;
+}
+
+.tooltip {
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  max-width: 260px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.value {
+  font-size: var(--font-size-base);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+.detail {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  margin: 2px 0 0;
+}

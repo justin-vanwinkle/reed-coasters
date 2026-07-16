@@ -115,6 +115,19 @@ export const MFR_SHORT_NAMES: Record<string, string> = {
 // Disney parks that should be grouped as "Walt Disney World"
 export const DISNEY_PARKS = ['Hollywood Studios', 'Magic Kingdom', 'EPCOT', 'Animal Kingdom'];
 
+// Home state of each park (drives the derived geography breakdown)
+export const PARK_STATES: Record<string, string> = {
+  'Kings Island': 'Ohio',
+  'Carowinds': 'North Carolina',
+  'Jellystone Park': 'North Carolina',
+  'Hollywood Studios': 'Florida',
+  'Magic Kingdom': 'Florida',
+  'EPCOT': 'Florida',
+  'Animal Kingdom': 'Florida',
+  'Busch Gardens Tampa': 'Florida',
+  'SeaWorld Orlando': 'Florida',
+};
+
 // Animation and UI constants
 export const ANIMATION = {
   FRAME_DURATION: 16, // 60fps

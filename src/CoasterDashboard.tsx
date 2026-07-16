@@ -3,11 +3,13 @@ import { Hero, TabNav, ParkLegend, Footer, type Tab } from './components/layout'
 import { CoasterModal } from './components/coaster';
 import {
   OverviewSection,
+  ReedsStorySection,
   HeightSpeedSection,
   InversionsSection,
   TracksSection,
   BuildersSection,
   RecordsSection,
+  ShowdownSection,
   RawDataSection,
 } from './components/sections';
 import { useCoasterData } from './hooks/useCoasterData';
@@ -16,11 +18,13 @@ import styles from './CoasterDashboard.module.css';
 
 const TABS: Tab[] = [
   { id: 'overview', label: 'Overview' },
+  { id: 'reeds-story', label: "Reed's Story" },
   { id: 'height-speed', label: 'Height & Speed' },
   { id: 'inversions', label: "Inversions & G's" },
   { id: 'tracks', label: 'Tracks & Time' },
   { id: 'builders', label: 'Builders & Types' },
   { id: 'records', label: 'Records' },
+  { id: 'showdown', label: 'Showdown' },
   { id: 'raw-data', label: 'Coaster Details' },
 ];
 
@@ -71,8 +75,16 @@ export default function CoasterDashboard() {
           />
         )}
 
+        {activeTab === 'reeds-story' && (
+          <ReedsStorySection onSelectCoaster={handleSelectCoaster} />
+        )}
+
         {activeTab === 'height-speed' && (
-          <HeightSpeedSection scatterData={scatterData} speedData={speedData} />
+          <HeightSpeedSection
+            scatterData={scatterData}
+            speedData={speedData}
+            onSelectCoaster={handleSelectCoaster}
+          />
         )}
 
         {activeTab === 'inversions' && (
@@ -83,13 +95,19 @@ export default function CoasterDashboard() {
           <TracksSection trackData={trackData} timelineData={timelineData} />
         )}
 
-        {activeTab === 'builders' && <BuildersSection mfrPieData={mfrPieData} />}
+        {activeTab === 'builders' && (
+          <BuildersSection mfrPieData={mfrPieData} onSelectCoaster={handleSelectCoaster} />
+        )}
 
         {activeTab === 'records' && (
           <RecordsSection
             recordCategories={recordCategories}
             onSelectCoaster={handleSelectCoaster}
           />
+        )}
+
+        {activeTab === 'showdown' && (
+          <ShowdownSection onSelectCoaster={handleSelectCoaster} />
         )}
 
         {activeTab === 'raw-data' && (

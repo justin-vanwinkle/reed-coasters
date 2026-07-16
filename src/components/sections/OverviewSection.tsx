@@ -24,7 +24,7 @@ function OverviewSectionComponent({
   return (
     <div className={styles.grid}>
       <GlassCard
-        title="🏔️ The Skyline"
+        title="🏔️ Height Rankings"
         subtitle="Every coaster Reed has ridden, ranked by height"
         span
       >
