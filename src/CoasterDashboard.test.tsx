@@ -32,6 +32,7 @@ describe('CoasterDashboard', () => {
     TAB_LABELS.forEach((label) => {
       fireEvent.click(screen.getByRole('tab', { name: label }));
       expect(screen.getByRole('tab', { name: label, selected: true })).toBeTruthy();
+      expect(screen.getByTestId('hero-prompt')).toBeTruthy();
     });
   });
 

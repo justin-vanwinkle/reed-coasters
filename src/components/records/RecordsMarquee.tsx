@@ -1,25 +1,10 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { useCoasterData } from '../../hooks/useCoasterData';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import type { Coaster, MarqueeClaim } from '../../data/coasters.types';
 import styles from './RecordsMarquee.module.css';
 
 const STATIC_CLAIM_LIMIT = 8;
-
-// jsdom (and very old browsers) may lack matchMedia, so guard every call
-function usePrefersReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener?.('change', onChange);
-    return () => mq.removeEventListener?.('change', onChange);
-  }, []);
-
-  return reduced;
-}
 
 interface RecordsMarqueeProps {
   onSelectCoaster: (coaster: Coaster) => void;

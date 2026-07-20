@@ -1,7 +1,50 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { AnimatedNumber } from '../ui/AnimatedNumber';
 import { stats } from '../../data';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import styles from './Hero.module.css';
+
+const HERO_PROMPTS = [
+  'Can you ride more than me?',
+  'Think you can top my coaster count?',
+  'Front row or back row?',
+  'How many loops is too many? Trick question.',
+  'Big drops. Bigger bragging rights.',
+  'The midway called—it wants another lap.',
+  'Keep your hands up and your coaster count higher.',
+  'One more ride? Always.',
+  'Ready to earn some airtime?',
+  "What’s your next must-ride?",
+  'Your next favorite coaster is still out there.',
+  'Queue up. Strap in. Brag later.',
+] as const;
+
+const PROMPT_INTERVAL_MS = 10_000;
+const LAST_PROMPT_STORAGE_KEY = 'reeds-coaster-dashboard:last-hero-prompt';
+
+function readLastPrompt(): string | null {
+  try {
+    const storedPrompt = window.sessionStorage.getItem(LAST_PROMPT_STORAGE_KEY);
+    return HERO_PROMPTS.includes(storedPrompt as (typeof HERO_PROMPTS)[number])
+      ? storedPrompt
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function storePrompt(prompt: string) {
+  try {
+    window.sessionStorage.setItem(LAST_PROMPT_STORAGE_KEY, prompt);
+  } catch {
+    // Storage may be unavailable in privacy-restricted browsing contexts.
+  }
+}
+
+function pickPrompt(excludedPrompt: string | null): string {
+  const candidates = HERO_PROMPTS.filter((prompt) => prompt !== excludedPrompt);
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
 
 const HERO_STATS = [
   { value: stats.totalCoasters, label: 'Coasters', suffix: '', color: 'var(--color-primary)' },
@@ -15,6 +58,23 @@ const HERO_STATS = [
  * Hero section with animated stats
  */
 function HeroComponent() {
+  const [prompt, setPrompt] = useState(() => pickPrompt(readLastPrompt()));
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    storePrompt(prompt);
+  }, [prompt]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const intervalId = window.setInterval(() => {
+      setPrompt((currentPrompt) => pickPrompt(currentPrompt));
+    }, PROMPT_INTERVAL_MS);
+
+    return () => window.clearInterval(intervalId);
+  }, [prefersReducedMotion]);
+
   return (
     <div className={styles.hero}>
       <div className={styles.background} />
@@ -41,6 +101,12 @@ function HeroComponent() {
           {stats.totalCoasters} coasters. 9 parks. 50+ years of engineering. Every twist, drop, and loop — visualized.
         </p>
         <div className={styles.trackDivider} />
+
+        <p className={styles.prompt} data-testid="hero-prompt">
+          <span key={prompt} className={styles.promptText}>
+            {prompt}
+          </span>
+        </p>
 
         <div className={styles.statsGrid}>
           {HERO_STATS.map((stat, i) => (
