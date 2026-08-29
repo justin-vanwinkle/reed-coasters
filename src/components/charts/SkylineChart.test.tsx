@@ -7,10 +7,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { SkylineChart } from './SkylineChart';
 
 describe('SkylineChart', () => {
-  it('renders 34 coaster silhouettes and 2 reference silhouettes', () => {
+  it('renders 37 coaster silhouettes and 2 reference silhouettes', () => {
     const { container } = render(<SkylineChart onSelectCoaster={() => {}} />);
 
-    expect(container.querySelectorAll('[data-testid^="skyline-coaster-"]')).toHaveLength(34);
+    expect(container.querySelectorAll('[data-testid^="skyline-coaster-"]')).toHaveLength(37);
     expect(container.querySelectorAll('[data-testid^="skyline-ref-"]')).toHaveLength(2);
   });
 

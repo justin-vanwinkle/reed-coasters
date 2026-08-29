@@ -45,7 +45,7 @@ describe('extractElementTags', () => {
 
 describe('elementsMatrix', () => {
   it('has a row per coaster', () => {
-    expect(elementsMatrix.length).toBe(35);
+    expect(elementsMatrix.length).toBe(38);
   });
 
   it('every tag matches at least one coaster (no dead tags)', () => {
