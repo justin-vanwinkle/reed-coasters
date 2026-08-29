@@ -31,6 +31,8 @@ export interface Coaster {
   reedsAgeOnFirstRide: number | null;
   imageUrl: string | null;
   povVideo: POVVideo | null;
+  /** true for coasters Reed wants to ride but hasn't yet (see wishlist.ts) */
+  wishlist?: boolean;
 }
 
 export interface CoasterStats {
@@ -53,6 +55,7 @@ export interface HeightDataPoint {
   height: number;
   fill: string;
   park: string;
+  wishlist?: boolean;
 }
 
 export interface SpeedDataPoint {
@@ -61,6 +64,7 @@ export interface SpeedDataPoint {
   speed: number;
   fill: string;
   park: string;
+  wishlist?: boolean;
 }
 
 export interface ScatterDataPoint {
@@ -78,6 +82,7 @@ export interface InversionDataPoint {
   inversions: number;
   fill: string;
   park: string;
+  wishlist?: boolean;
 }
 
 export interface PieDataPoint {
@@ -101,6 +106,7 @@ export interface TrackDataPoint {
   track: number;
   fill: string;
   park: string;
+  wishlist?: boolean;
 }
 
 export interface GForceDataPoint {

@@ -20,3 +20,9 @@
   font-variant-numeric: tabular-nums;
   margin: 2px 0;
 }
+
+.wishlistNote {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin: var(--spacing-xs) 0 0;
+}

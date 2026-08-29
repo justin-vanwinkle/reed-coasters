@@ -10,7 +10,7 @@ import {
   Cell,
 } from 'recharts';
 import { DarkTooltip } from '../ui/Tooltip';
-import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS } from './shared';
+import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS, getBarCellProps } from './shared';
 import type { HeightDataPoint } from '../../data/coasters.types';
 
 interface HeightBarChartProps {
@@ -41,7 +41,7 @@ function HeightBarChartComponent({ data }: HeightBarChartProps) {
             <Tooltip content={<DarkTooltip formatter={(v) => `${v} ft`} />} />
             <Bar dataKey="height" radius={BAR_RADIUS} animationDuration={1500}>
               {data.map((d, i) => (
-                <Cell key={i} fill={d.fill} />
+                <Cell key={i} {...getBarCellProps(d)} />
               ))}
             </Bar>
           </BarChart>

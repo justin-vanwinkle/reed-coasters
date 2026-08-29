@@ -9,7 +9,7 @@ import {
   CartesianGrid,
   Cell,
 } from 'recharts';
-import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS } from './shared';
+import { CHART_MARGIN_WITH_LABELS, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS, getBarCellProps } from './shared';
 import type { TrackDataPoint } from '../../data/coasters.types';
 import styles from './TrackLengthChart.module.css';
 
@@ -43,13 +43,16 @@ function TrackLengthChartComponent({ data }: TrackLengthChartProps) {
                     <p className={styles.value} style={{ color: d.fill }}>
                       {d.track.toLocaleString()} ft ({(d.track / 5280).toFixed(2)} mi)
                     </p>
+                    {d.wishlist && (
+                      <p className={styles.wishlistNote}>⭐ On Reed's wish list — not ridden yet</p>
+                    )}
                   </div>
                 );
               }}
             />
             <Bar dataKey="track" radius={BAR_RADIUS} animationDuration={1500}>
               {data.map((d, i) => (
-                <Cell key={i} fill={d.fill} />
+                <Cell key={i} {...getBarCellProps(d)} />
               ))}
             </Bar>
           </BarChart>

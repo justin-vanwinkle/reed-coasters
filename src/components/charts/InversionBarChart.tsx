@@ -10,7 +10,7 @@ import {
   Cell,
 } from 'recharts';
 import { DarkTooltip } from '../ui/Tooltip';
-import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS } from './shared';
+import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE, BAR_RADIUS, getBarCellProps } from './shared';
 import type { InversionDataPoint } from '../../data/coasters.types';
 
 interface InversionBarChartProps {
@@ -37,7 +37,7 @@ function InversionBarChartComponent({ data }: InversionBarChartProps) {
         <Tooltip content={<DarkTooltip formatter={(v) => `${v} inversions`} />} />
         <Bar dataKey="inversions" radius={BAR_RADIUS} animationDuration={1200} barSize={40}>
           {data.map((d, i) => (
-            <Cell key={i} fill={d.fill} />
+            <Cell key={i} {...getBarCellProps(d)} />
           ))}
         </Bar>
       </BarChart>

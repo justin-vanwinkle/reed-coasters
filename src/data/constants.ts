@@ -17,6 +17,7 @@ export const PARK_COLORS: Record<string, string> = {
   'Busch Gardens Tampa': '#FF5A6E',
   'SeaWorld Orlando': '#54A8FF',
   'Jellystone Park': '#C77DFF',
+  'Dollywood': '#FF9440',
 };
 
 // Grouped parks (Disney parks grouped as "Walt Disney World")
@@ -27,7 +28,12 @@ export const PARK_GROUPS: Record<string, string> = {
   'Busch Gardens Tampa': '#FF5A6E',
   'SeaWorld Orlando': '#54A8FF',
   'Jellystone Park': '#C77DFF',
+  'Dollywood': '#FF9440',
 };
+
+// Parks that only appear on Reed's wish list (no ridden coasters yet) —
+// shown with outlined bars/dots instead of filled ones
+export const WISHLIST_PARK_GROUPS = ['Dollywood'];
 
 // Manufacturer colors
 // NOTE: hexes must byte-match the tokens in src/styles/variables.css
@@ -110,6 +116,7 @@ export const MFR_SHORT_NAMES: Record<string, string> = {
   'Intamin': 'Intamin',
   'Wiegand Sports': 'Wiegand',
   'Vekoma / WED Enterprises': 'Vekoma',
+  'Gerstlauer Amusement Rides': 'Gerstlauer',
 };
 
 // Disney parks that should be grouped as "Walt Disney World"
@@ -126,6 +133,7 @@ export const PARK_STATES: Record<string, string> = {
   'Animal Kingdom': 'Florida',
   'Busch Gardens Tampa': 'Florida',
   'SeaWorld Orlando': 'Florida',
+  'Dollywood': 'Tennessee',
 };
 
 // Animation and UI constants

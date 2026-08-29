@@ -10,6 +10,7 @@ import CoasterDashboard from './CoasterDashboard';
 const TAB_LABELS = [
   'Overview',
   "Reed's Story",
+  'Wish List',
   'Height & Speed',
   "Inversions & G's",
   'Tracks & Time',
@@ -20,7 +21,7 @@ const TAB_LABELS = [
 ];
 
 describe('CoasterDashboard', () => {
-  it('renders all nine tabs', () => {
+  it('renders all ten tabs', () => {
     render(<CoasterDashboard />);
     TAB_LABELS.forEach((label) => {
       expect(screen.getByRole('tab', { name: label })).toBeTruthy();

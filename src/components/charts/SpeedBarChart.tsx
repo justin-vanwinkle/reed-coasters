@@ -10,7 +10,7 @@ import {
   Cell,
 } from 'recharts';
 import { DarkTooltip } from '../ui/Tooltip';
-import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE } from './shared';
+import { CHART_MARGIN, AXIS_TICK_STYLE, GRID_STYLE, getBarCellProps } from './shared';
 import type { SpeedDataPoint } from '../../data/coasters.types';
 
 interface SpeedBarChartProps {
@@ -35,7 +35,7 @@ function SpeedBarChartComponent({ data, limit = 15 }: SpeedBarChartProps) {
         <Tooltip content={<DarkTooltip formatter={(v) => `${v} mph`} />} />
         <Bar dataKey="speed" radius={[0, 6, 6, 0]} animationDuration={1200} barSize={16}>
           {displayData.map((d, i) => (
-            <Cell key={i} fill={d.fill} />
+            <Cell key={i} {...getBarCellProps(d)} />
           ))}
         </Bar>
       </BarChart>

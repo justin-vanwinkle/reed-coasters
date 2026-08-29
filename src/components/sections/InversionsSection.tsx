@@ -76,7 +76,7 @@ function InversionsSectionComponent({ inversionData, gforceData }: InversionsSec
         subtitle={`Where all ${stats.totalInversions} inversions come from`}
       >
         <div className={styles.inversionList}>
-          {inversionData.map((c, i) => {
+          {inversionData.filter((c) => !c.wishlist).map((c, i) => {
             const pct = (c.inversions / stats.totalInversions) * 100;
             return (
               <div key={i} className={styles.inversionRow}>
