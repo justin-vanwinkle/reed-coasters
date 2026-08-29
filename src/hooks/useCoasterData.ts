@@ -6,6 +6,7 @@
 import { useMemo } from 'react';
 import {
   coasters,
+  wishlistCoasters,
   stats,
   heightData,
   speedData,
@@ -70,6 +71,7 @@ import type {
 export interface UseCoasterDataReturn {
   // Core data
   coasters: Coaster[];
+  wishlistCoasters: Coaster[];
   stats: CoasterStats;
 
   // Chart data (pre-computed)
@@ -122,6 +124,7 @@ export function useCoasterData(): UseCoasterDataReturn {
   return useMemo(
     () => ({
       coasters,
+      wishlistCoasters,
       stats,
       heightData,
       speedData,

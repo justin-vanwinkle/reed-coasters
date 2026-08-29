@@ -25,7 +25,7 @@ function OverviewSectionComponent({
     <div className={styles.grid}>
       <GlassCard
         title="🏔️ Height Rankings"
-        subtitle="Every coaster Reed has ridden, ranked by height"
+        subtitle="Every coaster Reed has ridden, ranked by height — dashed outlines are wish-list coasters"
         span
       >
         <HeightBarChart data={heightData} />

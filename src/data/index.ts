@@ -27,9 +27,17 @@ import type {
   RecordCategory,
 } from './coasters.types';
 
+import { wishlistCoasters } from './wishlist';
+
 // Core dataset + lookup helpers live in core.ts (so derived-data modules can
 // import them without circular dependencies); re-exported here for consumers
 export { coasters, getParkGroup, getParkColor, getMfrColor, truncateName, findCoasterById };
+export { wishlistCoasters };
+
+// Ridden + wish-list combined — used ONLY by the per-coaster bar charts below,
+// where wish-list coasters render as outlined bars. Stats, pies, timeline,
+// records, and all derived datasets stay ridden-only via `coasters`.
+const chartCoasters: Coaster[] = [...coasters, ...wishlistCoasters];
 
 // Computed statistics
 export const stats: CoasterStats = {
@@ -71,7 +79,7 @@ export const stats: CoasterStats = {
 };
 
 // Pre-computed chart data
-export const heightData: HeightDataPoint[] = coasters
+export const heightData: HeightDataPoint[] = chartCoasters
   .filter((c) => c.height)
   .sort((a, b) => b.height! - a.height!)
   .map((c) => ({
@@ -80,9 +88,10 @@ export const heightData: HeightDataPoint[] = coasters
     height: c.height!,
     fill: getParkColor(c.park),
     park: c.park,
+    wishlist: c.wishlist,
   }));
 
-export const speedData: SpeedDataPoint[] = coasters
+export const speedData: SpeedDataPoint[] = chartCoasters
   .filter((c) => c.speed)
   .sort((a, b) => b.speed! - a.speed!)
   .map((c) => ({
@@ -91,6 +100,7 @@ export const speedData: SpeedDataPoint[] = coasters
     speed: c.speed!,
     fill: getParkColor(c.park),
     park: c.park,
+    wishlist: c.wishlist,
   }));
 
 export const scatterData: ScatterDataPoint[] = coasters
@@ -105,7 +115,7 @@ export const scatterData: ScatterDataPoint[] = coasters
     track: c.trackLength,
   }));
 
-export const inversionData: InversionDataPoint[] = coasters
+export const inversionData: InversionDataPoint[] = chartCoasters
   .filter((c) => c.inversions > 0)
   .sort((a, b) => b.inversions - a.inversions)
   .map((c) => ({
@@ -113,6 +123,7 @@ export const inversionData: InversionDataPoint[] = coasters
     inversions: c.inversions,
     fill: getParkColor(c.park),
     park: c.park,
+    wishlist: c.wishlist,
   }));
 
 export const parkPieData: PieDataPoint[] = Object.entries(stats.parkCounts)
@@ -147,7 +158,7 @@ export const decadeData: DecadeDataPoint[] = Object.entries(stats.decadeCounts)
   .sort((a, b) => a[0].localeCompare(b[0]))
   .map(([name, count]) => ({ name, count }));
 
-export const trackData: TrackDataPoint[] = coasters
+export const trackData: TrackDataPoint[] = chartCoasters
   .filter((c) => c.trackLength)
   .sort((a, b) => b.trackLength! - a.trackLength!)
   .map((c) => ({
@@ -156,6 +167,7 @@ export const trackData: TrackDataPoint[] = coasters
     track: c.trackLength!,
     fill: getParkColor(c.park),
     park: c.park,
+    wishlist: c.wishlist,
   }));
 
 export const gforceData: GForceDataPoint[] = coasters
@@ -223,4 +235,4 @@ export { thrillScores, getThrillScore, getRadarData } from './thrillScore';
 export type { Coaster, CoasterStats, POVVideo } from './coasters.types';
 
 // Re-export constants
-export { PARK_COLORS, PARK_GROUPS, MFR_COLORS, MEDAL_COLORS, POV_VIDEOS, PARK_STATES } from './constants';
+export { PARK_COLORS, PARK_GROUPS, WISHLIST_PARK_GROUPS, MFR_COLORS, MEDAL_COLORS, POV_VIDEOS, PARK_STATES } from './constants';

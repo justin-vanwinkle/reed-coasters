@@ -21,7 +21,7 @@ export function getParkGroup(park: string): string {
 }
 
 // Helper to get manufacturer short name
-function getMfrShortName(manufacturer: string): string {
+export function getMfrShortName(manufacturer: string): string {
   return MFR_SHORT_NAMES[manufacturer] || manufacturer;
 }
 

@@ -28,6 +28,7 @@ describe('PARK_COLORS', () => {
     expect(PARK_COLORS['Busch Gardens Tampa']).toBeDefined();
     expect(PARK_COLORS['SeaWorld Orlando']).toBeDefined();
     expect(PARK_COLORS['Jellystone Park']).toBeDefined();
+    expect(PARK_COLORS['Dollywood']).toBeDefined();
   });
 
   it('all colors are valid hex values', () => {

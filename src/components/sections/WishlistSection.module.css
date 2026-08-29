@@ -1,0 +1,50 @@
+.intro {
+  color: var(--text-secondary);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  margin: 0 0 var(--spacing-xl);
+}
+
+.outlineExample {
+  border: 2px dashed;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-xs);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.superlatives {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.superlative {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px dashed var(--card-border-hover);
+  border-radius: var(--radius-lg);
+}
+
+.superlativeLabel {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: var(--font-weight-bold);
+}
+
+.superlativeValue {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}

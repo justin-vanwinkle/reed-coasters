@@ -19,6 +19,14 @@
   box-shadow: 0 0 8px currentColor;
 }
 
+.wishlistDot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  border: 2px dashed;
+  box-shadow: 0 0 8px currentColor;
+}
+
 .label {
   font-size: var(--font-size-sm);
   color: var(--text-tertiary);

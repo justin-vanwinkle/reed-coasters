@@ -11,6 +11,7 @@ import {
   RecordsSection,
   ShowdownSection,
   RawDataSection,
+  WishlistSection,
 } from './components/sections';
 import { useCoasterData } from './hooks/useCoasterData';
 import type { Coaster } from './data/coasters.types';
@@ -19,6 +20,7 @@ import styles from './CoasterDashboard.module.css';
 const TABS: Tab[] = [
   { id: 'overview', label: 'Overview' },
   { id: 'reeds-story', label: "Reed's Story" },
+  { id: 'wishlist', label: 'Wish List' },
   { id: 'height-speed', label: 'Height & Speed' },
   { id: 'inversions', label: "Inversions & G's" },
   { id: 'tracks', label: 'Tracks & Time' },
@@ -38,6 +40,7 @@ export default function CoasterDashboard() {
 
   const {
     coasters,
+    wishlistCoasters,
     heightData,
     speedData,
     scatterData,
@@ -77,6 +80,10 @@ export default function CoasterDashboard() {
 
         {activeTab === 'reeds-story' && (
           <ReedsStorySection onSelectCoaster={handleSelectCoaster} />
+        )}
+
+        {activeTab === 'wishlist' && (
+          <WishlistSection coasters={wishlistCoasters} onSelectCoaster={handleSelectCoaster} />
         )}
 
         {activeTab === 'height-speed' && (

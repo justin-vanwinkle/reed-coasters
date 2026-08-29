@@ -122,6 +122,16 @@ function CoasterModalComponent({ coaster, onClose }: CoasterModalProps) {
           })}
         </div>
 
+        {/* Wish List */}
+        {coaster.wishlist && (
+          <div
+            className={styles.timesRidden}
+            style={{ background: `${parkColor}15`, borderColor: `${parkColor}33`, color: parkColor }}
+          >
+            ⭐ On Reed's wish list — not ridden yet
+          </div>
+        )}
+
         {/* Times Ridden */}
         {coaster.timesRidden && (
           <div className={styles.timesRidden} style={{ background: `${parkColor}15`, borderColor: `${parkColor}33`, color: parkColor }}>

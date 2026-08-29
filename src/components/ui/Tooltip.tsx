@@ -18,6 +18,8 @@ function DarkTooltipComponent({
 }: DarkTooltipProps) {
   if (!active || !payload?.length) return null;
 
+  const isWishlist = Boolean(payload[0]?.payload?.wishlist);
+
   return (
     <div className={styles.tooltip}>
       <p className={styles.label}>{label || payload[0]?.payload?.name}</p>
@@ -33,6 +35,7 @@ function DarkTooltipComponent({
           </strong>
         </p>
       ))}
+      {isWishlist && <p className={styles.wishlistNote}>⭐ On Reed's wish list — not ridden yet</p>}
     </div>
   );
 }

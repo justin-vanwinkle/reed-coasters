@@ -22,6 +22,15 @@ export const CHART_BG = '#171126';
 
 export const BAR_RADIUS: [number, number, number, number] = [6, 6, 0, 0];
 
+// Wish-list coasters (not yet ridden) render as dashed outlines, not fills
+export const WISHLIST_STROKE_DASH = '6 4';
+
+export function getBarCellProps(d: { fill: string; wishlist?: boolean }) {
+  return d.wishlist
+    ? { fill: 'transparent', stroke: d.fill, strokeWidth: 2, strokeDasharray: WISHLIST_STROKE_DASH }
+    : { fill: d.fill };
+}
+
 export const CHART_MARGIN = {
   top: 5,
   right: 20,
