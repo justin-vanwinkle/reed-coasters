@@ -37,5 +37,8 @@ exports[`elementsMatrix > extraction output is stable 1`] = `
   "mako: airtime",
   "pipeline-surf-coaster: inverting",
   "kraken: inverting",
+  "manta: inverting",
+  "ice-breaker: backwards, beyondVertical, launch",
+  "journey-to-atlantis: indoor, themed, water",
 ]
 `;

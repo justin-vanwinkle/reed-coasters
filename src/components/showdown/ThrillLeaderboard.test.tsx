@@ -8,10 +8,10 @@ import { ThrillLeaderboard } from './ThrillLeaderboard';
 import { thrillScores } from '../../data';
 
 describe('ThrillLeaderboard', () => {
-  it('renders a row for all 35 coasters', () => {
+  it('renders a row for all 38 coasters', () => {
     render(<ThrillLeaderboard entries={thrillScores} onSelectCoaster={() => {}} />);
 
-    expect(screen.getAllByRole('button')).toHaveLength(35);
+    expect(screen.getAllByRole('button')).toHaveLength(38);
   });
 
   it('ranks Fury 325 first', () => {
